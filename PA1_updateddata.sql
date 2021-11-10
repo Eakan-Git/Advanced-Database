@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa1e7673b0c8bd3c71f0532526c852fc996cebcb23710d10cfc25432f5dcefaf
-size 356
+﻿USE csdlnc_pa1
+GO
+
+IF DB_NAME() <> N'csdlnc_pa1' SET NOEXEC ON
+GO
+
+/*Update dữ liệu*/
+update CT_HOADON
+set GiaBan = dbo.fn_GiaBanSP(MaSP, 5000) from CT_HOADON
+
+update CT_HOADON
+set ThanhTien = dbo.fn_ThanhTienCTHD(SoLuong, GiaBan, GiaGiam) from CT_HOADON 
+
+update HOADON
+set TongTien = dbo.fn_TongTienHD(CT_HOADON.MaHD) from CT_HOADON 
