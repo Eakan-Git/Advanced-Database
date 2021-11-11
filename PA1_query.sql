@@ -18,15 +18,17 @@ SELECT *
 FROM SanPham sp
 WHERE sp.SoLuongTon < 100
 -- cau e: san pham co so luong ban ra nhieu nhat:
-SELECT ct1.MASP, sp.TENSP 
-FROM CT_HoaDon ct1, HOADON hd1, SANPHAM sp 
-WHERE ct1.MAHD = hd1.MAHD and sp.MASP = ct1.MASP GROUP BY ct1.MASP, sp.TENSP HAVING sum(ct1.SoLuong) >= ALL ( SELECT sum(ct.SoLuong) FROM CT_HoaDon ct, HOADON hd WHERE ct.MAHD = hd.MAHD GROUP BY ct.MASP ) 
+SELECT ct1.MASP, sp.TENSP , sum(ct1.SoLuong) as SoSanPhamBanRa
+FROM CT_HoaDon ct1, SANPHAM sp 
+WHERE sp.MASP = ct1.MASP 
+GROUP BY ct1.MASP, sp.TENSP
+HAVING sum(ct1.SoLuong) >= ALL (SELECT sum(ct.SoLuong)  FROM CT_HoaDon ct, SANPHAM sp WHERE ct.MASP = sp.MASP GROUP BY ct.MASP) 
 -- cau f: sản phẩm có doanh thu cao nhất 
-SELECT ct1.MASP, sp.TENSP 
-FROM CT_HoaDon ct1, HOADON hd1, SANPHAM sp 
-WHERE ct1.MAHD = hd1.MAHD and sp.MASP = ct1.MASP GROUP BY ct1.MASP, sp.TENSP HAVING sum(ct1.GiaBan*ct1.SoLuong) >= ALL ( SELECT sum(ct.GiaBan*ct.SoLuong) FROM CT_HoaDon ct, HOADON hd WHERE ct.MAHD = hd.MAHD GROUP BY ct.MASP )
-
-
+SELECT ct1.MASP, sp.TENSP , sum(ct1.ThanhTien) as SoTien
+FROM CT_HoaDon ct1, SANPHAM sp 
+WHERE sp.MASP = ct1.MASP 
+GROUP BY ct1.MASP, sp.TENSP
+HAVING sum(ct1.ThanhTien) >= ALL ( SELECT sum(ct.ThanhTien) FROM CT_HoaDon ct, SANPHAM sp WHERE ct.MASP = sp.MASP GROUP BY ct.MASP) 
 --select * from CT_HOADON
 
 --SELECT*FROM dbo.SANPHAM WHERE MaSP = 'SP-00009'
