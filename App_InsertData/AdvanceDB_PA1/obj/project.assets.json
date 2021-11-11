@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\duy\\source\\repos\\AdvanceDB_PA1\\AdvanceDB_PA1\\AdvanceDB_PA1.csproj",
+      "projectUniqueName": "D:\\MVS\\C#\\App_InsertData\\AdvanceDB_PA1\\AdvanceDB_PA1.csproj",
       "projectName": "AdvanceDB_PA1",
-      "projectPath": "C:\\Users\\duy\\source\\repos\\AdvanceDB_PA1\\AdvanceDB_PA1\\AdvanceDB_PA1.csproj",
+      "projectPath": "D:\\MVS\\C#\\App_InsertData\\AdvanceDB_PA1\\AdvanceDB_PA1.csproj",
       "packagesPath": "C:\\Users\\duy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\duy\\source\\repos\\AdvanceDB_PA1\\AdvanceDB_PA1\\obj\\",
+      "outputPath": "D:\\MVS\\C#\\App_InsertData\\AdvanceDB_PA1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duy\\AppData\\Roaming\\NuGet\\NuGet.Config",

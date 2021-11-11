@@ -45,22 +45,16 @@ namespace AdvanceDB_PA1
             connection = new SqlConnection(str);
             connection.Open();
             loadData();
-  
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            command = connection.CreateCommand();
-            command.CommandText = "insert into CT_HOADON(MaHD,MaSP,SoLuong,GiaBan,GiaGiam) values ('"+textBox1.Text+"','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text +"','"+textBox7.Text+ "')";
-            command.ExecuteNonQuery();
-            loadData();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             command = connection.CreateCommand();
             command.CommandText = "insert into HOADON(MaHD,MaKH,NgayLap) values ('" + textBox1.Text + "','" + textBox2.Text + "','" + dateTimePicker1.Text + "')";
             command.ExecuteNonQuery();
+            command.CommandText = "insert into CT_HOADON(MaHD,MaSP,SoLuong,GiaBan,GiaGiam) values ('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "','" + textBox7.Text + "')";
+            command.ExecuteNonQuery();
+            loadData();
         }
     }
 }
