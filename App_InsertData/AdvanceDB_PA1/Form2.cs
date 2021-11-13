@@ -84,17 +84,20 @@ namespace AdvanceDB_PA1
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "")
+            if(textBox1.Text == "" || textBox1.Text == placeholder)
             {
                 MessageBox.Show("Hãy nhập mã đơn hàng");
             }
-            try
+            else
             {
-                search();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    search();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         private void textBox1_Enter(object sender, EventArgs e)

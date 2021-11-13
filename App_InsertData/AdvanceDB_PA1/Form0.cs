@@ -32,7 +32,8 @@ namespace AdvanceDB_PA1
   
         private void label1_Click(object sender, EventArgs e)
         {
-            currentChildForm.Close();
+            if(currentChildForm != null)
+                currentChildForm.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
