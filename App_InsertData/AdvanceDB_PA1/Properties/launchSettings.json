@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AdvanceDB_PA1": {
+      "commandName": "Project",
+      "sqlDebugging": false
+    }
+  }
+}
