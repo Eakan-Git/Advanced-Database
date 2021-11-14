@@ -8,6 +8,6 @@
   - PA1_updateddata.sql: Update data after generating using data generator. (No need to run after cloning)
   - PA1_query.sql: Script for query data.
 - App:
-  - .NET Core application for fetching data easier.
+  - .NET Core WinForms application for fetching data easier.
 # Files running order:
 ## Script -> Trigger -> Function -> Data -> Query
