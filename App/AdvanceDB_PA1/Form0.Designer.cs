@@ -68,7 +68,7 @@ namespace AdvanceDB_PA1
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(70, 400);
+            this.label2.Location = new System.Drawing.Point(70, 402);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 30);
             this.label2.TabIndex = 4;
@@ -161,6 +161,8 @@ namespace AdvanceDB_PA1
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 0);
+            this.panel3.MaximumSize = new System.Drawing.Size(781, 450);
+            this.panel3.MinimumSize = new System.Drawing.Size(781, 450);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(781, 450);
             this.panel3.TabIndex = 1;

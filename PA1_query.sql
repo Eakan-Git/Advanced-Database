@@ -29,6 +29,7 @@ FROM CT_HoaDon ct1, SANPHAM sp
 WHERE sp.MASP = ct1.MASP 
 GROUP BY ct1.MASP, sp.TENSP
 HAVING sum(ct1.ThanhTien) >= ALL ( SELECT sum(ct.ThanhTien) FROM CT_HoaDon ct, SANPHAM sp WHERE ct.MASP = sp.MASP GROUP BY ct.MASP) 
+
 --select * from CT_HOADON
 
 --SELECT*FROM dbo.SANPHAM WHERE MaSP = 'SP-00009'
@@ -40,5 +41,10 @@ HAVING sum(ct1.ThanhTien) >= ALL ( SELECT sum(ct.ThanhTien) FROM CT_HoaDon ct, S
 --WHERE MaHD = 'HD-0000001'
 
 --SELECT *
---FROM KhachHang kh 
+--FROM KhachHang kh ORDER BY kh.MakH ASC
 --WHERE kh.Tpho NOT LIKE  N'Thành Phố Hồ Chí Minh'
+
+--SELECT*
+--FROM dbo.SANPHAM
+
+--SELECT* FROM HOADON ORDER BY MaHD OFFSET 10 ROWS FETCH NEXT 10 rows only

@@ -12,8 +12,9 @@ namespace AdvanceDB_PA1
         SqlCommand command;
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
+        string str = @"Data Source=(local);Initial Catalog=csdlnc_pa1;Integrated Security=True";
         //Place this bellow str to comment
-        string str = @"Data Source=Eakan;Initial Catalog=csdlnc_pa1;Integrated Security=True";
+        //string str = @"Data Source=Eakan;Initial Catalog=csdlnc_pa1;Integrated Security=True";
         string placeholder = "Nhập mã đơn hàng...";
         //Uncomment to run: @Duy
         //string str = @"Data Source=DUY-LAPTOP\SQLEXPRESS;Initial Catalog=csdlnc_pa1;Integrated Security=True";
@@ -35,14 +36,15 @@ namespace AdvanceDB_PA1
         void loadData()
         {
             command = connection.CreateCommand();
-            command.CommandText = "select* from HOADON order by MaHD offset " + Convert.ToString(offset) + 
-                " rows fetch next " + Convert.ToString(maxRowsPerPage) + "rows only";
-
+            command.CommandText = "select* from HOADON order by MaHD offset @offset rows fetch next @rows rows only";
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@offset", offset);
+            command.Parameters.AddWithValue("@rows", maxRowsPerPage);
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
             dataGridView1.DataSource = table;
-            if(offset <= 0)
+            if (offset <= 0)
             {
                 btnPrevious.Enabled = false;
             }
