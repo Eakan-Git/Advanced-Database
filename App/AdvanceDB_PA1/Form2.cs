@@ -89,6 +89,8 @@ namespace AdvanceDB_PA1
             if(textBox1.Text == "" || textBox1.Text == placeholder)
             {
                 MessageBox.Show("Hãy nhập mã đơn hàng");
+                //offset = 0;
+                loadData();
             }
             else
             {
