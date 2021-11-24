@@ -1,0 +1,6 @@
+
+*.v2
+App/.vs/*
+App/AdvanceDB_PA1/bin/*
+App/AdvanceDB_PA1/obj/*
+PA1_data.sql
