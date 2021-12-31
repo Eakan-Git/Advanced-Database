@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +58,24 @@
     </Compile>
     <Compile Include="AdminOrderForm.Designer.cs">
       <DependentUpon>AdminOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerProductViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerProductViewForm.Designer.cs">
+      <DependentUpon>CustomerProductViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoneyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoneyForm.Designer.cs">
+      <DependentUpon>MoneyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFormCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderFormCustomerForm.Designer.cs">
+      <DependentUpon>OrderFormCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
@@ -96,11 +115,20 @@
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerProductViewForm.resx">
+      <DependentUpon>CustomerProductViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoneyForm.resx">
+      <DependentUpon>MoneyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderFormCustomerForm.resx">
+      <DependentUpon>OrderFormCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
@@ -163,6 +191,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shipped_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createOrder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

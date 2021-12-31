@@ -12,11 +12,18 @@ namespace HoaYeuThuong
 {
     public partial class HomeForm : Form
     {
-
+        string ID, role, username;
+        const string CUSTOMER = "0";
+        const string STAFF = "1";
+        const string MANAGER = "2";
         private Form currentChildForm;
-        public HomeForm()
+        public HomeForm(string _ID, string _role, string _username)
         {
             InitializeComponent();
+            ID = _ID;
+            role = _role;
+            username = _username;
+            greetingLabel.Text = "Xin chào, " + username;
         }
         private void OpenChildForm(Form childForm)
         {
@@ -49,8 +56,14 @@ namespace HoaYeuThuong
             navMenu.Top = btnProduct.Top;
             navMenu.Visible = true;
             navMenu.BringToFront();
-
-            OpenChildForm(new ProductForm());
+            if (role == STAFF)
+            {
+                OpenChildForm(new ProductForm());
+            }
+            else //CUSTOMER
+            {
+                OpenChildForm(new CustomerProductViewForm());
+            }
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -101,6 +114,47 @@ namespace HoaYeuThuong
         {
             Application.Run(new LoginForm());
         }
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            navMenu.Height = btnCart.Height;
+            navMenu.Top = btnCart.Top;
+            navMenu.Visible = true;
+            navMenu.BringToFront();
+
+
+        }
+
+        private void btnOrderForCustomer_Click(object sender, EventArgs e)
+        {
+            navMenu.Height = btnOrderForCustomer.Height;
+            navMenu.Top = btnOrderForCustomer.Top;
+            navMenu.Visible = true;
+            navMenu.BringToFront();
+
+
+        }
+
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+            if(role == MANAGER)
+            {
+                btnCart.Visible = false;
+            }
+            else if(role == STAFF)
+            {
+                btnStaff.Visible = false;
+                btnMoney.Visible = false;
+                btnCart.Visible = false;
+            }
+            else //CUSTOMER (default = 0)
+            {
+                btnCustomer.Visible = false;
+                btnStaff.Visible = false;
+                btnMoney.Visible = false;
+            }
+        }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLoginForm));

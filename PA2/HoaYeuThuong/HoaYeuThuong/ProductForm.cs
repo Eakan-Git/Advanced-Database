@@ -16,5 +16,21 @@ namespace HoaYeuThuong
         {
             InitializeComponent();
         }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)| *.jpg; *.jpeg; *.png; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                productImage.Image = new Bitmap(open.FileName);
+            }
+        }
+
+        private void btnUnlock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -79,7 +79,7 @@ namespace HoaYeuThuong
             this.emailTb.Location = new System.Drawing.Point(128, 248);
             this.emailTb.Name = "emailTb";
             this.emailTb.Size = new System.Drawing.Size(142, 20);
-            this.emailTb.TabIndex = 15;
+            this.emailTb.TabIndex = 6;
             // 
             // label4
             // 
@@ -96,7 +96,7 @@ namespace HoaYeuThuong
             this.addressTb.Location = new System.Drawing.Point(128, 199);
             this.addressTb.Name = "addressTb";
             this.addressTb.Size = new System.Drawing.Size(142, 20);
-            this.addressTb.TabIndex = 13;
+            this.addressTb.TabIndex = 5;
             // 
             // label2
             // 
@@ -113,7 +113,7 @@ namespace HoaYeuThuong
             this.phoneNumTb.Location = new System.Drawing.Point(128, 144);
             this.phoneNumTb.Name = "phoneNumTb";
             this.phoneNumTb.Size = new System.Drawing.Size(142, 20);
-            this.phoneNumTb.TabIndex = 11;
+            this.phoneNumTb.TabIndex = 4;
             // 
             // label3
             // 
@@ -130,7 +130,7 @@ namespace HoaYeuThuong
             this.nameTb.Location = new System.Drawing.Point(128, 90);
             this.nameTb.Name = "nameTb";
             this.nameTb.Size = new System.Drawing.Size(142, 20);
-            this.nameTb.TabIndex = 9;
+            this.nameTb.TabIndex = 3;
             // 
             // nameLabel
             // 
@@ -162,7 +162,7 @@ namespace HoaYeuThuong
             this.comfirmPassTb.Name = "comfirmPassTb";
             this.comfirmPassTb.PasswordChar = '*';
             this.comfirmPassTb.Size = new System.Drawing.Size(142, 20);
-            this.comfirmPassTb.TabIndex = 30;
+            this.comfirmPassTb.TabIndex = 2;
             // 
             // comfirmpassLabel
             // 
@@ -180,7 +180,7 @@ namespace HoaYeuThuong
             this.textBox5.Name = "textBox5";
             this.textBox5.PasswordChar = '*';
             this.textBox5.Size = new System.Drawing.Size(142, 20);
-            this.textBox5.TabIndex = 28;
+            this.textBox5.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -197,7 +197,7 @@ namespace HoaYeuThuong
             this.textBox4.Location = new System.Drawing.Point(142, 90);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(142, 20);
-            this.textBox4.TabIndex = 26;
+            this.textBox4.TabIndex = 0;
             // 
             // usernameLabel
             // 
@@ -246,7 +246,7 @@ namespace HoaYeuThuong
             this.btnCancel.Location = new System.Drawing.Point(369, 9);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 40);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -259,7 +259,7 @@ namespace HoaYeuThuong
             this.signUpBtn.Location = new System.Drawing.Point(239, 9);
             this.signUpBtn.Name = "signUpBtn";
             this.signUpBtn.Size = new System.Drawing.Size(103, 40);
-            this.signUpBtn.TabIndex = 1;
+            this.signUpBtn.TabIndex = 7;
             this.signUpBtn.Text = "Đăng Ký Ngay!";
             this.signUpBtn.UseVisualStyleBackColor = true;
             // 
@@ -270,7 +270,7 @@ namespace HoaYeuThuong
             this.backBtn.Location = new System.Drawing.Point(112, 9);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(103, 40);
-            this.backBtn.TabIndex = 0;
+            this.backBtn.TabIndex = 8;
             this.backBtn.Text = "Quay Lại";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);

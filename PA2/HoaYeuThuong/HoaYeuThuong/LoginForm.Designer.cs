@@ -31,6 +31,7 @@ namespace HoaYeuThuong
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panelLoginBtn = new System.Windows.Forms.Panel();
+            this.signUpBtn = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@ namespace HoaYeuThuong
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.signUpBtn = new System.Windows.Forms.Button();
             this.panelLoginBtn.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -57,13 +57,24 @@ namespace HoaYeuThuong
             this.panelLoginBtn.Size = new System.Drawing.Size(435, 59);
             this.panelLoginBtn.TabIndex = 5;
             // 
+            // signUpBtn
+            // 
+            this.signUpBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.signUpBtn.Location = new System.Drawing.Point(28, 9);
+            this.signUpBtn.Name = "signUpBtn";
+            this.signUpBtn.Size = new System.Drawing.Size(103, 40);
+            this.signUpBtn.TabIndex = 3;
+            this.signUpBtn.Text = "Đăng Ký";
+            this.signUpBtn.UseVisualStyleBackColor = true;
+            this.signUpBtn.Click += new System.EventHandler(this.signUpBtn_Click);
+            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCancel.Location = new System.Drawing.Point(303, 9);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 40);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -98,7 +109,8 @@ namespace HoaYeuThuong
             this.passTxt.Name = "passTxt";
             this.passTxt.PasswordChar = '*';
             this.passTxt.Size = new System.Drawing.Size(168, 20);
-            this.passTxt.TabIndex = 28;
+            this.passTxt.TabIndex = 1;
+            this.passTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passTxt_KeyPress);
             // 
             // usernameTxt
             // 
@@ -108,7 +120,8 @@ namespace HoaYeuThuong
             this.usernameTxt.MinimumSize = new System.Drawing.Size(168, 20);
             this.usernameTxt.Name = "usernameTxt";
             this.usernameTxt.Size = new System.Drawing.Size(168, 20);
-            this.usernameTxt.TabIndex = 27;
+            this.usernameTxt.TabIndex = 0;
+            this.usernameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.usernameTxt_KeyPress);
             // 
             // label3
             // 
@@ -151,17 +164,6 @@ namespace HoaYeuThuong
             this.label1.Size = new System.Drawing.Size(162, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "ĐĂNG NHẬP";
-            // 
-            // signUpBtn
-            // 
-            this.signUpBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.signUpBtn.Location = new System.Drawing.Point(28, 9);
-            this.signUpBtn.Name = "signUpBtn";
-            this.signUpBtn.Size = new System.Drawing.Size(103, 40);
-            this.signUpBtn.TabIndex = 3;
-            this.signUpBtn.Text = "Đăng Ký";
-            this.signUpBtn.UseVisualStyleBackColor = true;
-            this.signUpBtn.Click += new System.EventHandler(this.signUpBtn_Click);
             // 
             // LoginForm
             // 

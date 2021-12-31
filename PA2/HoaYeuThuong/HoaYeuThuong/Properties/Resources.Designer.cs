@@ -73,6 +73,26 @@ namespace HoaYeuThuong.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cart {
+            get {
+                object obj = ResourceManager.GetObject("cart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap createOrder {
+            get {
+                object obj = ResourceManager.GetObject("createOrder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_32 {
             get {
                 object obj = ResourceManager.GetObject("delete-32", resourceCulture);
@@ -156,6 +176,16 @@ namespace HoaYeuThuong.Properties {
         internal static System.Drawing.Bitmap shipped {
             get {
                 object obj = ResourceManager.GetObject("shipped", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shipped_2 {
+            get {
+                object obj = ResourceManager.GetObject("shipped_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
