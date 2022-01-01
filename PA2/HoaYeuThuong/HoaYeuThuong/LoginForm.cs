@@ -20,7 +20,12 @@ namespace HoaYeuThuong
             InitializeComponent();
             adapter = new SqlDataAdapter();
         }
-
+        public LoginForm(string username)
+        {
+            InitializeComponent();
+            adapter = new SqlDataAdapter();
+            usernameTxt.Text = username;
+        }
         private void signUpBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
