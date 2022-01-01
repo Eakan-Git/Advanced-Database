@@ -29,8 +29,8 @@ namespace HoaYeuThuong
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNavigator = new System.Windows.Forms.Panel();
             this.searchBtn = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
@@ -51,16 +51,22 @@ namespace HoaYeuThuong
             this.productDGV = new System.Windows.Forms.DataGridView();
             this.panelControl = new System.Windows.Forms.Panel();
             this.btnTrending = new System.Windows.Forms.RadioButton();
+            this.panelAddToCart = new System.Windows.Forms.Panel();
+            this.btnAddToCart = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
+            this.productImage = new System.Windows.Forms.PictureBox();
             this.panelNavigator.SuspendLayout();
             this.panelDetail.SuspendLayout();
             this.panelPrice.SuspendLayout();
             this.panelDes.SuspendLayout();
             this.panelName.SuspendLayout();
+            this.panelPicture.SuspendLayout();
             this.panelList.SuspendLayout();
             this.panelDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDGV)).BeginInit();
             this.panelControl.SuspendLayout();
+            this.panelAddToCart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNavigator
@@ -86,6 +92,7 @@ namespace HoaYeuThuong
             this.searchBtn.TabIndex = 3;
             this.searchBtn.Text = "Tìm";
             this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // searchBox
             // 
@@ -94,6 +101,9 @@ namespace HoaYeuThuong
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(150, 20);
             this.searchBox.TabIndex = 2;
+            this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
+            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
+            this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
             // 
             // btnNext
             // 
@@ -107,6 +117,7 @@ namespace HoaYeuThuong
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -119,6 +130,7 @@ namespace HoaYeuThuong
             this.btnPrevious.TabIndex = 0;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // panelDetail
             // 
@@ -219,6 +231,7 @@ namespace HoaYeuThuong
             // panelPicture
             // 
             this.panelPicture.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelPicture.Controls.Add(this.productImage);
             this.panelPicture.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelPicture.Location = new System.Drawing.Point(0, 0);
             this.panelPicture.Name = "panelPicture";
@@ -253,24 +266,24 @@ namespace HoaYeuThuong
             this.productDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.productDGV.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.NullValue = "Không xác định";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.NullValue = "Không xác định";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.productDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productDGV.DefaultCellStyle = dataGridViewCellStyle6;
             this.productDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productDGV.GridColor = System.Drawing.Color.Gainsboro;
             this.productDGV.Location = new System.Drawing.Point(0, 0);
@@ -284,6 +297,7 @@ namespace HoaYeuThuong
             // 
             // panelControl
             // 
+            this.panelControl.Controls.Add(this.panelAddToCart);
             this.panelControl.Controls.Add(this.btnTrending);
             this.panelControl.Controls.Add(this.btnReload);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Top;
@@ -296,7 +310,7 @@ namespace HoaYeuThuong
             // btnTrending
             // 
             this.btnTrending.AutoSize = true;
-            this.btnTrending.Location = new System.Drawing.Point(12, 13);
+            this.btnTrending.Location = new System.Drawing.Point(218, 13);
             this.btnTrending.Name = "btnTrending";
             this.btnTrending.Size = new System.Drawing.Size(123, 17);
             this.btnTrending.TabIndex = 15;
@@ -305,6 +319,35 @@ namespace HoaYeuThuong
             this.btnTrending.UseVisualStyleBackColor = true;
             this.btnTrending.CheckedChanged += new System.EventHandler(this.btnTrending_CheckedChanged);
             this.btnTrending.Click += new System.EventHandler(this.btnTrending_Click);
+            // 
+            // panelAddToCart
+            // 
+            this.panelAddToCart.Controls.Add(this.btnAddToCart);
+            this.panelAddToCart.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelAddToCart.Location = new System.Drawing.Point(0, 0);
+            this.panelAddToCart.Name = "panelAddToCart";
+            this.panelAddToCart.Size = new System.Drawing.Size(208, 42);
+            this.panelAddToCart.TabIndex = 16;
+            // 
+            // btnAddToCart
+            // 
+            this.btnAddToCart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddToCart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddToCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAddToCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToCart.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnAddToCart.Image = global::HoaYeuThuong.Properties.Resources.add_to_cart32;
+            this.btnAddToCart.Location = new System.Drawing.Point(0, 0);
+            this.btnAddToCart.Name = "btnAddToCart";
+            this.btnAddToCart.Size = new System.Drawing.Size(208, 42);
+            this.btnAddToCart.TabIndex = 17;
+            this.btnAddToCart.Text = "Thêm";
+            this.btnAddToCart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddToCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddToCart.UseVisualStyleBackColor = true;
+            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // btnReload
             // 
@@ -315,6 +358,17 @@ namespace HoaYeuThuong
             this.btnReload.Size = new System.Drawing.Size(29, 24);
             this.btnReload.TabIndex = 14;
             this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // productImage
+            // 
+            this.productImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productImage.Location = new System.Drawing.Point(0, 0);
+            this.productImage.Name = "productImage";
+            this.productImage.Size = new System.Drawing.Size(208, 201);
+            this.productImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.productImage.TabIndex = 0;
+            this.productImage.TabStop = false;
             // 
             // CustomerProductViewForm
             // 
@@ -327,6 +381,7 @@ namespace HoaYeuThuong
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerProductViewForm";
             this.Text = "CustomerProductViewForm";
+            this.Load += new System.EventHandler(this.CustomerProductViewForm_Load);
             this.panelNavigator.ResumeLayout(false);
             this.panelNavigator.PerformLayout();
             this.panelDetail.ResumeLayout(false);
@@ -334,11 +389,14 @@ namespace HoaYeuThuong
             this.panelPrice.PerformLayout();
             this.panelDes.ResumeLayout(false);
             this.panelName.ResumeLayout(false);
+            this.panelPicture.ResumeLayout(false);
             this.panelList.ResumeLayout(false);
             this.panelDGV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productDGV)).EndInit();
             this.panelControl.ResumeLayout(false);
             this.panelControl.PerformLayout();
+            this.panelAddToCart.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.productImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,5 +424,8 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.RadioButton btnTrending;
         private System.Windows.Forms.DataGridView productDGV;
+        private System.Windows.Forms.Panel panelAddToCart;
+        private System.Windows.Forms.Button btnAddToCart;
+        private System.Windows.Forms.PictureBox productImage;
     }
 }

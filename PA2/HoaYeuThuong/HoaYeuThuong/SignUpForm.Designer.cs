@@ -40,11 +40,13 @@ namespace HoaYeuThuong
             this.nameTb = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comfirmPassTb = new System.Windows.Forms.TextBox();
+            this.panelValidPass = new System.Windows.Forms.Panel();
+            this.labelValidPass = new System.Windows.Forms.Label();
+            this.confirmPassTb = new System.Windows.Forms.TextBox();
             this.comfirmpassLabel = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,14 +54,19 @@ namespace HoaYeuThuong
             this.btnCancel = new System.Windows.Forms.Button();
             this.signUpBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.tbCMND = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelValidPass.SuspendLayout();
             this.panel2.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.tbCMND);
+            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.emailTb);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.addressTb);
@@ -144,11 +151,12 @@ namespace HoaYeuThuong
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comfirmPassTb);
+            this.panel3.Controls.Add(this.panelValidPass);
+            this.panel3.Controls.Add(this.confirmPassTb);
             this.panel3.Controls.Add(this.comfirmpassLabel);
-            this.panel3.Controls.Add(this.textBox5);
+            this.panel3.Controls.Add(this.tbPassword);
             this.panel3.Controls.Add(this.passwordLabel);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.tbUsername);
             this.panel3.Controls.Add(this.usernameLabel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 56);
@@ -156,13 +164,33 @@ namespace HoaYeuThuong
             this.panel3.Size = new System.Drawing.Size(300, 346);
             this.panel3.TabIndex = 24;
             // 
-            // comfirmPassTb
+            // panelValidPass
             // 
-            this.comfirmPassTb.Location = new System.Drawing.Point(142, 199);
-            this.comfirmPassTb.Name = "comfirmPassTb";
-            this.comfirmPassTb.PasswordChar = '*';
-            this.comfirmPassTb.Size = new System.Drawing.Size(142, 20);
-            this.comfirmPassTb.TabIndex = 2;
+            this.panelValidPass.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelValidPass.Controls.Add(this.labelValidPass);
+            this.panelValidPass.Location = new System.Drawing.Point(142, 222);
+            this.panelValidPass.Name = "panelValidPass";
+            this.panelValidPass.Size = new System.Drawing.Size(142, 23);
+            this.panelValidPass.TabIndex = 30;
+            // 
+            // labelValidPass
+            // 
+            this.labelValidPass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelValidPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValidPass.Location = new System.Drawing.Point(0, 0);
+            this.labelValidPass.Name = "labelValidPass";
+            this.labelValidPass.Size = new System.Drawing.Size(142, 23);
+            this.labelValidPass.TabIndex = 30;
+            this.labelValidPass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // confirmPassTb
+            // 
+            this.confirmPassTb.Location = new System.Drawing.Point(142, 199);
+            this.confirmPassTb.Name = "confirmPassTb";
+            this.confirmPassTb.PasswordChar = '*';
+            this.confirmPassTb.Size = new System.Drawing.Size(142, 20);
+            this.confirmPassTb.TabIndex = 2;
+            this.confirmPassTb.TextChanged += new System.EventHandler(this.confirmPassTb_TextChanged);
             // 
             // comfirmpassLabel
             // 
@@ -174,13 +202,13 @@ namespace HoaYeuThuong
             this.comfirmpassLabel.TabIndex = 29;
             this.comfirmpassLabel.Text = "Nhập Lại Mật Khẩu";
             // 
-            // textBox5
+            // tbPassword
             // 
-            this.textBox5.Location = new System.Drawing.Point(142, 144);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PasswordChar = '*';
-            this.textBox5.Size = new System.Drawing.Size(142, 20);
-            this.textBox5.TabIndex = 1;
+            this.tbPassword.Location = new System.Drawing.Point(142, 144);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(142, 20);
+            this.tbPassword.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -192,12 +220,12 @@ namespace HoaYeuThuong
             this.passwordLabel.TabIndex = 27;
             this.passwordLabel.Text = "Mật Khẩu";
             // 
-            // textBox4
+            // tbUsername
             // 
-            this.textBox4.Location = new System.Drawing.Point(142, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(142, 20);
-            this.textBox4.TabIndex = 0;
+            this.tbUsername.Location = new System.Drawing.Point(142, 90);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(142, 20);
+            this.tbUsername.TabIndex = 0;
             // 
             // usernameLabel
             // 
@@ -262,6 +290,7 @@ namespace HoaYeuThuong
             this.signUpBtn.TabIndex = 7;
             this.signUpBtn.Text = "Đăng Ký Ngay!";
             this.signUpBtn.UseVisualStyleBackColor = true;
+            this.signUpBtn.Click += new System.EventHandler(this.signUpBtn_Click);
             // 
             // backBtn
             // 
@@ -275,6 +304,23 @@ namespace HoaYeuThuong
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // tbCMND
+            // 
+            this.tbCMND.Location = new System.Drawing.Point(128, 291);
+            this.tbCMND.Name = "tbCMND";
+            this.tbCMND.Size = new System.Drawing.Size(142, 20);
+            this.tbCMND.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(30, 295);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 16);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "CMND";
+            // 
             // SignUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,6 +331,8 @@ namespace HoaYeuThuong
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(616, 500);
+            this.MinimumSize = new System.Drawing.Size(616, 500);
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Ký Tài Khoản";
@@ -292,6 +340,7 @@ namespace HoaYeuThuong
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panelValidPass.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.btnPanel.ResumeLayout(false);
@@ -311,11 +360,11 @@ namespace HoaYeuThuong
         private System.Windows.Forms.TextBox nameTb;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox comfirmPassTb;
+        private System.Windows.Forms.TextBox confirmPassTb;
         private System.Windows.Forms.Label comfirmpassLabel;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
@@ -323,5 +372,9 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button signUpBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Panel panelValidPass;
+        private System.Windows.Forms.Label labelValidPass;
+        private System.Windows.Forms.TextBox tbCMND;
+        private System.Windows.Forms.Label label5;
     }
 }

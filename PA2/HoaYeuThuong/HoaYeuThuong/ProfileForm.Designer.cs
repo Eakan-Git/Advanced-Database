@@ -242,6 +242,7 @@ namespace HoaYeuThuong
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileForm";
             this.Text = "Thông Tin Cá Nhân";
+            this.Load += new System.EventHandler(this.ProfileForm_Load);
             this.panelBtn.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
