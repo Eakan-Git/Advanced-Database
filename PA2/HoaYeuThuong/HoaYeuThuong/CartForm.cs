@@ -17,8 +17,10 @@ namespace HoaYeuThuong
         SqlConnection connection;
         SqlDataAdapter adapter = new SqlDataAdapter();
         string str = @"Data Source=(local);Initial Catalog=Hoayeuthuong;Integrated Security=True";
-        int offset;
         string ID;
+        string salePriceDefault = "Giá món hàng: ";
+        string totalDefault = "Tổng tiền: ";
+        int price;
         public CartForm(string _ID)
         {
             InitializeComponent();
@@ -35,9 +37,104 @@ namespace HoaYeuThuong
             adapter.Fill(dt);
             productDGV.DataSource = dt;
         }
+        private void loadTotalPrice()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("exec ThanhTien_GioHang_Run @ID", connection);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt);
+                labelTotal.Text = totalDefault + dt.Rows[0][0].ToString() + "đ";
+                labelTotal.Visible = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void CartForm_Load(object sender, EventArgs e)
         {
             loadProductList();
+            loadTotalPrice();
+        }
+
+        private void productDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                quantity.Value = Convert.ToInt32(productDGV.SelectedRows[0].Cells[2].Value);
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("exec khachHangXemSP_CoHinh_TrongCart @TEN", connection);
+                cmd.Parameters.AddWithValue("@TEN", productDGV.SelectedRows[0].Cells[0].Value.ToString());
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt);
+
+                nameLabel.Text = dt.Rows[0][0].ToString();
+                price = Convert.ToInt32(dt.Rows[0][1]);
+                labelSalePrice.Text = salePriceDefault + (price * quantity.Value).ToString() + "đ";
+                byte[] imgData = (byte[])dt.Rows[0][2];
+                MemoryStream ms = new MemoryStream(imgData);
+                Image img = Image.FromStream(ms);
+                productImage.Image = img;
+                labelSalePrice.Visible = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void updateProductPrice()
+        {
+            labelSalePrice.Text = salePriceDefault + (price * quantity.Value).ToString() + "đ";
+        }
+        private void quantity_ValueChanged(object sender, EventArgs e)
+        {
+            updateProductPrice();
+        }
+
+        private void updateProductDetails()
+        {
+            if(quantity.Value == 0)
+            {
+                deleteProduct();
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand("exec updatesoluongSPGH @ID, @TEN, @SOLUONG", connection);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.Parameters.AddWithValue("@TEN", productDGV.SelectedRows[0].Cells[0].Value.ToString());
+                cmd.Parameters.AddWithValue("@SOLUONG", quantity.Value.ToString());
+                cmd.ExecuteNonQuery();
+            }
+        }
+        private void btnEditQuantity_Click(object sender, EventArgs e)
+        {
+            updateProductDetails();
+            loadProductList();
+            loadTotalPrice();
+        }
+        private void deleteProduct()
+        {
+            DialogResult confirm = MessageBox.Show("Bạn muốn xóa sản phẩm này khỏi giỏ hàng?", "Xóa Sản Phẩm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                SqlCommand cmd = new SqlCommand("exec xoasanphamGH @ID, @TEN", connection);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.Parameters.AddWithValue("@TEN", productDGV.SelectedRows[0].Cells[0].Value.ToString());
+                cmd.ExecuteNonQuery();
+            }
+        }
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            deleteProduct();
+            loadProductList();
+        }
+
+        private void productDGV_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

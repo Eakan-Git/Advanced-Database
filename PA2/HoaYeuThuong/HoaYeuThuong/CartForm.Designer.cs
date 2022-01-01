@@ -32,34 +32,31 @@ namespace HoaYeuThuong
             this.panelTilte = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelDGV = new System.Windows.Forms.Panel();
+            this.productDGV = new System.Windows.Forms.DataGridView();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.panelPrice = new System.Windows.Forms.Panel();
+            this.panelSalePrice = new System.Windows.Forms.Panel();
+            this.labelSalePrice = new System.Windows.Forms.Label();
+            this.panelTotal = new System.Windows.Forms.Panel();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.panelName = new System.Windows.Forms.Panel();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.btnPurchase = new System.Windows.Forms.Button();
             this.quantityLabel = new System.Windows.Forms.Label();
             this.quantity = new System.Windows.Forms.NumericUpDown();
-            this.productDGV = new System.Windows.Forms.DataGridView();
-            this.btnPurchase = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnEditQuantity = new System.Windows.Forms.Button();
             this.productImage = new System.Windows.Forms.PictureBox();
-            this.panelName = new System.Windows.Forms.Panel();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.panelTotal = new System.Windows.Forms.Panel();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.panelPrice = new System.Windows.Forms.Panel();
-            this.panelOldPrice = new System.Windows.Forms.Panel();
-            this.panelSalePrice = new System.Windows.Forms.Panel();
-            this.labelOldPrice = new System.Windows.Forms.Label();
-            this.labelSalePrice = new System.Windows.Forms.Label();
             this.panelTilte.SuspendLayout();
             this.panelDGV.SuspendLayout();
-            this.panelControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productImage)).BeginInit();
-            this.panelName.SuspendLayout();
-            this.panelTotal.SuspendLayout();
+            this.panelControl.SuspendLayout();
             this.panelPrice.SuspendLayout();
-            this.panelOldPrice.SuspendLayout();
             this.panelSalePrice.SuspendLayout();
+            this.panelTotal.SuspendLayout();
+            this.panelName.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTilte
@@ -91,6 +88,23 @@ namespace HoaYeuThuong
             this.panelDGV.Size = new System.Drawing.Size(790, 311);
             this.panelDGV.TabIndex = 1;
             // 
+            // productDGV
+            // 
+            this.productDGV.AllowUserToAddRows = false;
+            this.productDGV.AllowUserToDeleteRows = false;
+            this.productDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.productDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.productDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productDGV.Location = new System.Drawing.Point(0, 0);
+            this.productDGV.Name = "productDGV";
+            this.productDGV.ReadOnly = true;
+            this.productDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productDGV.Size = new System.Drawing.Size(790, 311);
+            this.productDGV.TabIndex = 0;
+            this.productDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDGV_CellClick);
+            this.productDGV.SelectionChanged += new System.EventHandler(this.productDGV_SelectionChanged);
+            // 
             // panelControl
             // 
             this.panelControl.Controls.Add(this.panelPrice);
@@ -108,92 +122,59 @@ namespace HoaYeuThuong
             this.panelControl.Size = new System.Drawing.Size(790, 214);
             this.panelControl.TabIndex = 2;
             // 
-            // quantityLabel
+            // panelPrice
             // 
-            this.quantityLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Location = new System.Drawing.Point(592, 137);
-            this.quantityLabel.Name = "quantityLabel";
-            this.quantityLabel.Size = new System.Drawing.Size(53, 13);
-            this.quantityLabel.TabIndex = 11;
-            this.quantityLabel.Text = "Số Lượng";
+            this.panelPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelPrice.Controls.Add(this.panelSalePrice);
+            this.panelPrice.Location = new System.Drawing.Point(198, 137);
+            this.panelPrice.Name = "panelPrice";
+            this.panelPrice.Size = new System.Drawing.Size(391, 55);
+            this.panelPrice.TabIndex = 15;
             // 
-            // quantity
+            // panelSalePrice
             // 
-            this.quantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.quantity.Location = new System.Drawing.Point(595, 154);
-            this.quantity.Name = "quantity";
-            this.quantity.Size = new System.Drawing.Size(50, 20);
-            this.quantity.TabIndex = 10;
-            this.quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.panelSalePrice.Controls.Add(this.labelSalePrice);
+            this.panelSalePrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSalePrice.Location = new System.Drawing.Point(0, 0);
+            this.panelSalePrice.Name = "panelSalePrice";
+            this.panelSalePrice.Size = new System.Drawing.Size(391, 55);
+            this.panelSalePrice.TabIndex = 1;
             // 
-            // productDGV
+            // labelSalePrice
             // 
-            this.productDGV.AllowUserToAddRows = false;
-            this.productDGV.AllowUserToDeleteRows = false;
-            this.productDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.productDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.productDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productDGV.Location = new System.Drawing.Point(0, 0);
-            this.productDGV.Name = "productDGV";
-            this.productDGV.ReadOnly = true;
-            this.productDGV.Size = new System.Drawing.Size(790, 311);
-            this.productDGV.TabIndex = 0;
+            this.labelSalePrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSalePrice.ForeColor = System.Drawing.Color.Green;
+            this.labelSalePrice.Location = new System.Drawing.Point(0, 0);
+            this.labelSalePrice.Name = "labelSalePrice";
+            this.labelSalePrice.Size = new System.Drawing.Size(391, 55);
+            this.labelSalePrice.TabIndex = 16;
+            this.labelSalePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSalePrice.Visible = false;
             // 
-            // btnPurchase
+            // panelTotal
             // 
-            this.btnPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPurchase.Image = global::HoaYeuThuong.Properties.Resources.purchase;
-            this.btnPurchase.Location = new System.Drawing.Point(651, 23);
-            this.btnPurchase.Name = "btnPurchase";
-            this.btnPurchase.Size = new System.Drawing.Size(136, 108);
-            this.btnPurchase.TabIndex = 12;
-            this.btnPurchase.Text = "Đặt Hàng";
-            this.btnPurchase.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPurchase.UseVisualStyleBackColor = true;
+            this.panelTotal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelTotal.Controls.Add(this.labelTotal);
+            this.panelTotal.Location = new System.Drawing.Point(193, 55);
+            this.panelTotal.Name = "panelTotal";
+            this.panelTotal.Size = new System.Drawing.Size(404, 54);
+            this.panelTotal.TabIndex = 14;
             // 
-            // btnDeleteProduct
+            // labelTotal
             // 
-            this.btnDeleteProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProduct.Image = global::HoaYeuThuong.Properties.Resources.delete_32;
-            this.btnDeleteProduct.Location = new System.Drawing.Point(722, 137);
-            this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(65, 55);
-            this.btnDeleteProduct.TabIndex = 9;
-            this.btnDeleteProduct.Text = "Xóa";
-            this.btnDeleteProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDeleteProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            // 
-            // btnEditQuantity
-            // 
-            this.btnEditQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditQuantity.Image = global::HoaYeuThuong.Properties.Resources.save_32;
-            this.btnEditQuantity.Location = new System.Drawing.Point(651, 137);
-            this.btnEditQuantity.Name = "btnEditQuantity";
-            this.btnEditQuantity.Size = new System.Drawing.Size(65, 55);
-            this.btnEditQuantity.TabIndex = 8;
-            this.btnEditQuantity.Text = "Lưu";
-            this.btnEditQuantity.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnEditQuantity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEditQuantity.UseVisualStyleBackColor = true;
-            // 
-            // productImage
-            // 
-            this.productImage.Location = new System.Drawing.Point(27, 23);
-            this.productImage.Name = "productImage";
-            this.productImage.Size = new System.Drawing.Size(123, 169);
-            this.productImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.productImage.TabIndex = 0;
-            this.productImage.TabStop = false;
+            this.labelTotal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(0, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(404, 54);
+            this.labelTotal.TabIndex = 15;
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTotal.Visible = false;
             // 
             // panelName
             // 
+            this.panelName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelName.Controls.Add(this.nameLabel);
             this.panelName.Location = new System.Drawing.Point(237, 6);
             this.panelName.Name = "panelName";
@@ -211,75 +192,78 @@ namespace HoaYeuThuong
             this.nameLabel.Text = "HOA YÊU THƯƠNG";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelTotal
+            // btnPurchase
             // 
-            this.panelTotal.Controls.Add(this.labelTotal);
-            this.panelTotal.Location = new System.Drawing.Point(193, 55);
-            this.panelTotal.Name = "panelTotal";
-            this.panelTotal.Size = new System.Drawing.Size(404, 54);
-            this.panelTotal.TabIndex = 14;
+            this.btnPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPurchase.Image = global::HoaYeuThuong.Properties.Resources.purchase;
+            this.btnPurchase.Location = new System.Drawing.Point(651, 23);
+            this.btnPurchase.Name = "btnPurchase";
+            this.btnPurchase.Size = new System.Drawing.Size(136, 108);
+            this.btnPurchase.TabIndex = 12;
+            this.btnPurchase.Text = "Đặt Hàng";
+            this.btnPurchase.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPurchase.UseVisualStyleBackColor = true;
             // 
-            // labelTotal
+            // quantityLabel
             // 
-            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(0, 0);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(404, 54);
-            this.labelTotal.TabIndex = 15;
-            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelTotal.Visible = false;
+            this.quantityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.quantityLabel.AutoSize = true;
+            this.quantityLabel.Location = new System.Drawing.Point(592, 137);
+            this.quantityLabel.Name = "quantityLabel";
+            this.quantityLabel.Size = new System.Drawing.Size(53, 13);
+            this.quantityLabel.TabIndex = 11;
+            this.quantityLabel.Text = "Số Lượng";
             // 
-            // panelPrice
+            // quantity
             // 
-            this.panelPrice.Controls.Add(this.panelSalePrice);
-            this.panelPrice.Controls.Add(this.panelOldPrice);
-            this.panelPrice.Location = new System.Drawing.Point(198, 137);
-            this.panelPrice.Name = "panelPrice";
-            this.panelPrice.Size = new System.Drawing.Size(391, 55);
-            this.panelPrice.TabIndex = 15;
+            this.quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.quantity.Location = new System.Drawing.Point(595, 154);
+            this.quantity.Name = "quantity";
+            this.quantity.Size = new System.Drawing.Size(50, 20);
+            this.quantity.TabIndex = 10;
+            this.quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.quantity.ValueChanged += new System.EventHandler(this.quantity_ValueChanged);
             // 
-            // panelOldPrice
+            // btnDeleteProduct
             // 
-            this.panelOldPrice.Controls.Add(this.labelOldPrice);
-            this.panelOldPrice.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOldPrice.Location = new System.Drawing.Point(0, 0);
-            this.panelOldPrice.Name = "panelOldPrice";
-            this.panelOldPrice.Size = new System.Drawing.Size(191, 55);
-            this.panelOldPrice.TabIndex = 0;
+            this.btnDeleteProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProduct.Image = global::HoaYeuThuong.Properties.Resources.delete_32;
+            this.btnDeleteProduct.Location = new System.Drawing.Point(722, 137);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(65, 55);
+            this.btnDeleteProduct.TabIndex = 9;
+            this.btnDeleteProduct.Text = "Xóa";
+            this.btnDeleteProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDeleteProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
-            // panelSalePrice
+            // btnEditQuantity
             // 
-            this.panelSalePrice.Controls.Add(this.labelSalePrice);
-            this.panelSalePrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSalePrice.Location = new System.Drawing.Point(191, 0);
-            this.panelSalePrice.Name = "panelSalePrice";
-            this.panelSalePrice.Size = new System.Drawing.Size(200, 55);
-            this.panelSalePrice.TabIndex = 1;
+            this.btnEditQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditQuantity.Image = global::HoaYeuThuong.Properties.Resources.save_32;
+            this.btnEditQuantity.Location = new System.Drawing.Point(651, 137);
+            this.btnEditQuantity.Name = "btnEditQuantity";
+            this.btnEditQuantity.Size = new System.Drawing.Size(65, 55);
+            this.btnEditQuantity.TabIndex = 8;
+            this.btnEditQuantity.Text = "Lưu";
+            this.btnEditQuantity.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditQuantity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditQuantity.UseVisualStyleBackColor = true;
+            this.btnEditQuantity.Click += new System.EventHandler(this.btnEditQuantity_Click);
             // 
-            // labelOldPrice
+            // productImage
             // 
-            this.labelOldPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelOldPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOldPrice.ForeColor = System.Drawing.Color.Red;
-            this.labelOldPrice.Location = new System.Drawing.Point(0, 0);
-            this.labelOldPrice.Name = "labelOldPrice";
-            this.labelOldPrice.Size = new System.Drawing.Size(191, 55);
-            this.labelOldPrice.TabIndex = 16;
-            this.labelOldPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelOldPrice.Visible = false;
-            // 
-            // labelSalePrice
-            // 
-            this.labelSalePrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSalePrice.ForeColor = System.Drawing.Color.Green;
-            this.labelSalePrice.Location = new System.Drawing.Point(0, 0);
-            this.labelSalePrice.Name = "labelSalePrice";
-            this.labelSalePrice.Size = new System.Drawing.Size(200, 55);
-            this.labelSalePrice.TabIndex = 16;
-            this.labelSalePrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelSalePrice.Visible = false;
+            this.productImage.Location = new System.Drawing.Point(27, 23);
+            this.productImage.Name = "productImage";
+            this.productImage.Size = new System.Drawing.Size(123, 169);
+            this.productImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.productImage.TabIndex = 0;
+            this.productImage.TabStop = false;
             // 
             // CartForm
             // 
@@ -295,16 +279,15 @@ namespace HoaYeuThuong
             this.Load += new System.EventHandler(this.CartForm_Load);
             this.panelTilte.ResumeLayout(false);
             this.panelDGV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.productDGV)).EndInit();
             this.panelControl.ResumeLayout(false);
             this.panelControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productImage)).EndInit();
-            this.panelName.ResumeLayout(false);
-            this.panelTotal.ResumeLayout(false);
             this.panelPrice.ResumeLayout(false);
-            this.panelOldPrice.ResumeLayout(false);
             this.panelSalePrice.ResumeLayout(false);
+            this.panelTotal.ResumeLayout(false);
+            this.panelName.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,8 +311,6 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Panel panelPrice;
         private System.Windows.Forms.Panel panelSalePrice;
-        private System.Windows.Forms.Panel panelOldPrice;
         private System.Windows.Forms.Label labelSalePrice;
-        private System.Windows.Forms.Label labelOldPrice;
     }
 }

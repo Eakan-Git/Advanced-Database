@@ -45,11 +45,16 @@ namespace HoaYeuThuong
             isChecked = btnTrending.Checked;
             if(btnTrending.Checked)
             {
-                //Look up trending products
+                DataTable dt = new DataTable();
+                SqlCommand cmd = new SqlCommand("exec top10product", connection);
+                adapter.SelectCommand = cmd;
+                adapter.Fill(dt);
+                productDGV.DataSource = dt;
             }
             else
             {
-                //default DGV
+                offset = 0;
+                loadProductsList();
             }
         }
 
@@ -61,11 +66,6 @@ namespace HoaYeuThuong
             {
                 btnTrending.Checked = true;
                 isChecked = false;
-                DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("exec top10product", connection);
-                adapter.SelectCommand = cmd;
-                adapter.Fill(dt);
-                productDGV.DataSource = dt;
             }
         }
 
@@ -191,26 +191,15 @@ namespace HoaYeuThuong
         {
             try
             {
-                SqlCommand cmd_check = new SqlCommand("exec KiemTra_SP_GH @TK_ID, @SP_TEN", connection);
-                cmd_check.Parameters.AddWithValue("@TK_ID", ID);
-                cmd_check.Parameters.AddWithValue("@SP_TEN", productDGV.SelectedRows[0].Cells[0].Value.ToString());
-                int check = cmd_check.ExecuteNonQuery();
-                if (check != 0)
-                {
-                    SqlCommand cmd_add = new SqlCommand("exec KH_Them_SP_Vao_GH @TK_ID, @SP_TEN", connection);
-                    cmd_add.Parameters.AddWithValue("@TK_ID", ID);
-                    cmd_add.Parameters.AddWithValue("@SP_TEN", productDGV.SelectedRows[0].Cells[0].Value.ToString());
-                    cmd_add.ExecuteNonQuery();
-                    MessageBox.Show("Thêm vào giỏ hàng thành công.");
-                }
-                else
-                {
-                    MessageBox.Show("Sản phẩm đã tồn tại trong giỏ hàng.");
-                }
+                SqlCommand cmd_add = new SqlCommand("exec KH_Them_SP_Vao_GH @TK_ID, @SP_TEN", connection);
+                cmd_add.Parameters.AddWithValue("@TK_ID", ID);
+                cmd_add.Parameters.AddWithValue("@SP_TEN", productDGV.SelectedRows[0].Cells[0].Value.ToString());
+                cmd_add.ExecuteNonQuery();
+                MessageBox.Show("Thêm vào giỏ hàng thành công.");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Sản phẩm đã tồn tại trong giỏ hàng.");
             }
         }
     }

@@ -72,8 +72,15 @@ namespace HoaYeuThuong
             navMenu.Top = btnOrder.Top;
             navMenu.Visible = true;
             navMenu.BringToFront();
-
-            OpenChildForm(new AdminOrderForm());
+            if(role == STAFF || role == MANAGER)
+            {
+                OpenChildForm(new AdminOrderForm());
+            }
+            else
+            {
+                OpenChildForm(new CustomerOrderForm(ID));
+            }
+            
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)

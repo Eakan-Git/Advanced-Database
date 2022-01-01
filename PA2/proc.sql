@@ -228,6 +228,16 @@ begin
 end
 go
 
+create or alter proc khachHangXemSP_CoHinh_TrongCart
+@SP_TEN nvarchar(50)
+as
+begin
+	select SP_TEN, SP_GIABAN, SP_HINHANH
+	from SANPHAM
+	where SP_TEN = @SP_TEN
+end
+go
+
 create or alter proc khachHangTimSP
 @SP_TEN nvarchar(50)
 as
@@ -260,8 +270,12 @@ create or alter proc taoAccKhachHang
 @sdt char(10)
 as
 begin
+	declare @TK_ID int
 	insert into TAIKHOAN(TK_USERNAME,TK_PASSWORD,HOTEN, TK_STATUS, TK_ROLE,TK_EMAIL,TK_CMND,TK_DIACHI,TK_SDT) 
 	values (@username,@password,@hoten,1,0,@email,@cmnd,@diachi,@sdt)
+	set @TK_ID = (select TK_ID from TAIKHOAN where TK_SDT = @sdt)
+	insert into KHACHHANG(TK_ID)
+	values(@TK_ID)
 end
 go
 
@@ -276,7 +290,7 @@ end
 go
 
 --exec KH_XemChiTiet_GH 12
-
+---------------------------------------------------------------
 create or alter proc KH_Them_SP_Vao_GH
 @TK_ID int,
 @SP_TEN nvarchar(50)
@@ -288,7 +302,7 @@ begin
 	values (@TK_ID, @SP_ID, 1)
 end
 go
---exec KH_Them_SP_Vao_GH 10002, N'100% yêu em'
+--exec KH_Them_SP_Vao_GH 10003, N'100% yêu em'
 --insert into CHITIETGIOHANG(TK_ID, SP_ID, SOLUONG)
 --	values (10002, 1, 1)
 create or alter proc KiemTra_SP_GH
@@ -301,5 +315,68 @@ begin
 	select SP_ID
 	from CHITIETGIOHANG where SP_ID = @SP_ID and TK_ID = @TK_ID
 end
---exec KiemTra_SP_GH 3335, 'Kem Hoa'
-select * from TAIKHOAN
+go
+--exec KiemTra_SP_GH 10003, N'100% yêu em'
+--select * from TAIKHOAN
+
+create or alter proc KH_XemDanhSach_DH
+@TK_ID int
+as
+begin
+	select ID_DH as N'Mã Đơn', TEN_DAT as N'Người Đặt', TEN_NHAN as N'Người Nhận', THOIGIANDATHANG as N'Ngày Đặt', THOIGIANNHANHANG as N'Ngày Nhận', TINHTRANG as N'Tình Trạng', THANHTIEN as N'Thành Tiền'
+	from DONHANG where TK_ID = @TK_ID
+end
+--exec KH_XemDanhSach_DH 1
+go
+create OR ALTER proc ThanhTien_GioHang
+@KH_ID int
+as 
+BEGIN
+declare @GioHangTongTien MONEY
+SET @GioHangTongTien = (SELECT SUM(sp.SP_GIABAN*gh.SOLUONG) FROM SANPHAM sp JOIN CHITIETGIOHANG gh ON sp.SP_ID = gh.SP_ID WHERE gh.TK_ID = @KH_ID)
+RETURN @GioHangTongTien
+END
+GO
+--Test
+create or alter proc ThanhTien_GioHang_Run
+@ID int
+as
+begin
+	DECLARE @return_value int
+	EXEC @return_value  = ThanhTien_GioHang @ID
+	SELECT    'ThanhTien' = @return_value
+end
+--exec ThanhTien_GioHang_Run 1
+go
+
+create or alter proc updatesoluongSPGH
+@tkid int,
+@ten nvarchar(50),
+@soluong int
+as
+begin
+	declare @spid int
+	set @spid = (select SP_ID from SANPHAM where SP_TEN = @ten)
+	update CHITIETGIOHANG
+	set SOLUONG=@soluong
+	where TK_ID=@tkid and SP_ID=@spid
+end
+go
+
+create or alter proc xoasanphamGH
+@tkid int,
+@ten nvarchar(50)
+as
+begin
+	declare @spid int
+	set @spid = (select SP_ID from SANPHAM where SP_TEN = @ten)
+	delete from CHITIETGIOHANG where TK_ID=@tkid and SP_ID=@spid
+end
+--select * from TAIKHOAN
+go
+create or alter proc KH_Xem_DH
+@ID_DH int
+as
+begin
+	select * from DONHANG where ID_DH = @ID_DH
+end

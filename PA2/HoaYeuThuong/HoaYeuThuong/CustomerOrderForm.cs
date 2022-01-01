@@ -16,11 +16,13 @@ namespace HoaYeuThuong
         SqlConnection connection;
         SqlDataAdapter adapter = new SqlDataAdapter();
         string str = @"Data Source=(local);Initial Catalog=Hoayeuthuong;Integrated Security=True";
-        public CustomerOrderForm()
+        string ID;
+        public CustomerOrderForm(string _ID)
         {
             InitializeComponent();
             connection = new SqlConnection(str);
             connection.Open();
+            ID = _ID;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -33,13 +35,32 @@ namespace HoaYeuThuong
 
         }
 
-        private void loadProductList()
+        private void loadOrderList()
         {
-
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("exec KH_XemDanhSach_DH @ID", connection);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            adapter.SelectCommand = cmd;
+            adapter.Fill(dt);
+            orderDGV.DataSource = dt;
         }
         private void CustomerOrderForm_Load(object sender, EventArgs e)
         {
-            loadProductList();
+            loadOrderList();
+        }
+        private void loadDetailedOrder()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("exec KH_Xem_DH @ID", connection);
+            cmd.Parameters.AddWithValue("@ID", orderDGV.SelectedRows[0].Cells[0].Value.ToString());
+            adapter.SelectCommand = cmd;
+            adapter.Fill(dt);
+
+            //nameFrom.Text = dt.Columns["TEN_DAT"].ToString();
+        }
+        private void orderDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            loadDetailedOrder();
         }
     }
 }
