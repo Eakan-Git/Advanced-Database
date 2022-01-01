@@ -47,7 +47,7 @@ namespace HoaYeuThuong
             navMenu.Visible = true;
             navMenu.BringToFront();
 
-            OpenChildForm(new ProfileForm());
+            OpenChildForm(new ProfileForm(ID, role));
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace HoaYeuThuong
             navMenu.Top = btnProduct.Top;
             navMenu.Visible = true;
             navMenu.BringToFront();
-            if (role == STAFF)
+            if (role == STAFF || role == MANAGER)
             {
                 OpenChildForm(new ProductForm());
             }
@@ -100,6 +100,8 @@ namespace HoaYeuThuong
             navMenu.Top = btnMoney.Top;
             navMenu.Visible = true;
             navMenu.BringToFront();
+
+            OpenChildForm(new MoneyForm());
         }
 
         private void logoPic_Click(object sender, EventArgs e)
@@ -132,7 +134,7 @@ namespace HoaYeuThuong
             navMenu.Visible = true;
             navMenu.BringToFront();
 
-
+            OpenChildForm(new OrderForCustomerForm());
         }
 
         private void btnCreateAccout_Click(object sender, EventArgs e)

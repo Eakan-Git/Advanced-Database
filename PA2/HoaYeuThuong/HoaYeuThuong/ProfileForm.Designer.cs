@@ -31,6 +31,8 @@ namespace HoaYeuThuong
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             this.panelBtn = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.emailTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,8 +45,6 @@ namespace HoaYeuThuong
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panelBtn.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,12 +53,52 @@ namespace HoaYeuThuong
             // panelBtn
             // 
             this.panelBtn.Controls.Add(this.btnSave);
-            this.panelBtn.Controls.Add(this.btnAdd);
+            this.panelBtn.Controls.Add(this.btnEdit);
             this.panelBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelBtn.Location = new System.Drawing.Point(736, 0);
             this.panelBtn.Name = "panelBtn";
             this.panelBtn.Size = new System.Drawing.Size(72, 583);
             this.panelBtn.TabIndex = 27;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(0, 291);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(72, 292);
+            this.btnSave.TabIndex = 24;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = global::HoaYeuThuong.Properties.Resources.editProfile2;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEdit.Location = new System.Drawing.Point(0, 0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(72, 291);
+            this.btnEdit.TabIndex = 23;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // panel5
             // 
@@ -189,46 +229,6 @@ namespace HoaYeuThuong
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN CÁ NHÂN";
             // 
-            // btnSave
-            // 
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(0, 291);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(72, 292);
-            this.btnSave.TabIndex = 24;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Image = global::HoaYeuThuong.Properties.Resources.editProfile2;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(72, 291);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Sửa";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +254,7 @@ namespace HoaYeuThuong
         #endregion
         private System.Windows.Forms.Panel panelBtn;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox emailTb;
         private System.Windows.Forms.Label label4;

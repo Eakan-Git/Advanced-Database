@@ -59,3 +59,4 @@ exec checklistDangXuLy 0, 20
 --update THANHTOAN set TRANGTHAI = 1 WHERE ID_DH in (SELECT ID_DH FROM DONHANG WHERE TINHTRANG = N'Đang giao') and THANHTOAN_TYPE = 1
 
 --select * from DONHANG where ID_DH = 147
+

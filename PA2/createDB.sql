@@ -122,6 +122,7 @@ create table TAIKHOAN
    TK_ID                integer identity(1,1)          not null,
    TK_USERNAME          varchar(30)                    not null,
    TK_PASSWORD          varchar(30)                       not null,
+   HOTEN				nvarchar(50)					not null,
    TK_STATUS            bit							   not null,
    TK_ROLE              integer                        not null,
    TK_EMAIL             varchar(50)                    null,
