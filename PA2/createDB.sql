@@ -25,7 +25,8 @@ create table CHITIETDONHANG
    ID_DH                integer                        not null,
    SP_ID                integer                        not null,
    SOLUONG              integer                        not null,
-   GIABAN               money		                   not null
+   GIABAN               money		                   not null,
+   TONGTIEN				money							not null
 );
 
 alter table CHITIETDONHANG
@@ -64,9 +65,10 @@ create table DONHANG
    XUAT_GTGT            bit						       not null,
    PHUPHI               money						   not null,
    THOIGIANDATHANG      date                           not null,
-   THOIGIANNHANHANG     date                           not null,
+   THOIGIANNHANHANG     date                           null,
    TINHTRANG            nvarchar(50)                   not null,
-   TONGTIEN             money						   not null
+   GIAGIAM				money							not null,
+   THANHTIEN             money						   not null
 );
 
 alter table DONHANG

@@ -29,9 +29,9 @@ namespace HoaYeuThuong
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelTilte = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
@@ -43,6 +43,7 @@ namespace HoaYeuThuong
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnFetch = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.labelTilte = new System.Windows.Forms.Label();
             this.panelTilte.SuspendLayout();
             this.panelControl.SuspendLayout();
             this.panelChart.SuspendLayout();
@@ -51,6 +52,7 @@ namespace HoaYeuThuong
             // 
             // panelTilte
             // 
+            this.panelTilte.Controls.Add(this.labelTilte);
             this.panelTilte.Controls.Add(this.labelTitle);
             this.panelTilte.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTilte.Location = new System.Drawing.Point(0, 0);
@@ -66,7 +68,7 @@ namespace HoaYeuThuong
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(808, 60);
             this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "QUẢN LÝ THU NHẬP";
+            this.labelTitle.Text = " ";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelControl
@@ -94,17 +96,17 @@ namespace HoaYeuThuong
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(42, 21);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(724, 381);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -171,6 +173,17 @@ namespace HoaYeuThuong
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
+            // labelTilte
+            // 
+            this.labelTilte.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTilte.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTilte.Location = new System.Drawing.Point(0, 0);
+            this.labelTilte.Name = "labelTilte";
+            this.labelTilte.Size = new System.Drawing.Size(808, 60);
+            this.labelTilte.TabIndex = 2;
+            this.labelTilte.Text = "QUẢN LÝ THU NHẬP";
+            this.labelTilte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MoneyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,5 +217,6 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Label labelFrom;
         private System.Windows.Forms.Button btnFetch;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Label labelTilte;
     }
 }

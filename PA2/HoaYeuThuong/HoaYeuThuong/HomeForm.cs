@@ -135,11 +135,22 @@ namespace HoaYeuThuong
 
         }
 
+        private void btnCreateAccout_Click(object sender, EventArgs e)
+        {
+            navMenu.Height = btnCreateAccout.Height;
+            navMenu.Top = btnCreateAccout.Top;
+            navMenu.Visible = true;
+            navMenu.BringToFront();
+        }
+
         private void HomeForm_Load(object sender, EventArgs e)
         {
             if(role == MANAGER)
             {
                 btnCart.Visible = false;
+                btnOrderForCustomer.Visible = false;
+                btnOrder.Visible = false;
+                btnCustomer.Visible = false;
             }
             else if(role == STAFF)
             {
@@ -152,6 +163,8 @@ namespace HoaYeuThuong
                 btnCustomer.Visible = false;
                 btnStaff.Visible = false;
                 btnMoney.Visible = false;
+                btnCreateAccout.Visible = false;
+                btnOrderForCustomer.Visible = false;
             }
         }
 

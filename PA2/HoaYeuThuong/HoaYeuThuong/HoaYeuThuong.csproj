@@ -71,11 +71,11 @@
     <Compile Include="MoneyForm.Designer.cs">
       <DependentUpon>MoneyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderFormCustomerForm.cs">
+    <Compile Include="OrderForCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderFormCustomerForm.Designer.cs">
-      <DependentUpon>OrderFormCustomerForm.cs</DependentUpon>
+    <Compile Include="OrderForCustomerForm.Designer.cs">
+      <DependentUpon>OrderForCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
@@ -127,8 +127,8 @@
     <EmbeddedResource Include="MoneyForm.resx">
       <DependentUpon>MoneyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderFormCustomerForm.resx">
-      <DependentUpon>OrderFormCustomerForm.cs</DependentUpon>
+    <EmbeddedResource Include="OrderForCustomerForm.resx">
+      <DependentUpon>OrderForCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
@@ -200,6 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\createOrder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createAccount.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

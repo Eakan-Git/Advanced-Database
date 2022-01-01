@@ -50,17 +50,18 @@ namespace HoaYeuThuong
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnMoney = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnCart = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
             this.logoPic = new System.Windows.Forms.PictureBox();
             this.userAvatar = new System.Windows.Forms.PictureBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnCreateAccout = new System.Windows.Forms.Button();
             this.btnOrderForCustomer = new System.Windows.Forms.Button();
+            this.btnMoney = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.menuPanel.SuspendLayout();
@@ -128,7 +129,9 @@ namespace HoaYeuThuong
             // 
             // menuPanel
             // 
+            this.menuPanel.AutoScroll = true;
             this.menuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.menuPanel.Controls.Add(this.btnCreateAccout);
             this.menuPanel.Controls.Add(this.btnOrderForCustomer);
             this.menuPanel.Controls.Add(this.btnMoney);
             this.menuPanel.Controls.Add(this.btnStaff);
@@ -306,25 +309,6 @@ namespace HoaYeuThuong
             this.label3.TabIndex = 0;
             this.label3.Text = "MSSV";
             // 
-            // btnMoney
-            // 
-            this.btnMoney.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMoney.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMoney.FlatAppearance.BorderSize = 0;
-            this.btnMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoney.Image = ((System.Drawing.Image)(resources.GetObject("btnMoney.Image")));
-            this.btnMoney.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMoney.Location = new System.Drawing.Point(0, 420);
-            this.btnMoney.Name = "btnMoney";
-            this.btnMoney.Size = new System.Drawing.Size(263, 70);
-            this.btnMoney.TabIndex = 33;
-            this.btnMoney.Text = "  Thu Nhập";
-            this.btnMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMoney.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnMoney.UseVisualStyleBackColor = true;
-            this.btnMoney.Click += new System.EventHandler(this.btnMoney_Click);
-            // 
             // btnStaff
             // 
             this.btnStaff.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -336,8 +320,8 @@ namespace HoaYeuThuong
             this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStaff.Location = new System.Drawing.Point(0, 350);
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(263, 70);
-            this.btnStaff.TabIndex = 32;
+            this.btnStaff.Size = new System.Drawing.Size(246, 70);
+            this.btnStaff.TabIndex = 43;
             this.btnStaff.Text = "  Nhân Viên";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -355,8 +339,8 @@ namespace HoaYeuThuong
             this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomer.Location = new System.Drawing.Point(0, 280);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(263, 70);
-            this.btnCustomer.TabIndex = 31;
+            this.btnCustomer.Size = new System.Drawing.Size(246, 70);
+            this.btnCustomer.TabIndex = 42;
             this.btnCustomer.Text = "  Khách Hàng";
             this.btnCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -374,8 +358,8 @@ namespace HoaYeuThuong
             this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOrder.Location = new System.Drawing.Point(0, 210);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(263, 70);
-            this.btnOrder.TabIndex = 30;
+            this.btnOrder.Size = new System.Drawing.Size(246, 70);
+            this.btnOrder.TabIndex = 41;
             this.btnOrder.Text = "  Đơn Hàng";
             this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrder.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -394,8 +378,8 @@ namespace HoaYeuThuong
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProduct.Location = new System.Drawing.Point(0, 140);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(263, 70);
-            this.btnProduct.TabIndex = 29;
+            this.btnProduct.Size = new System.Drawing.Size(246, 70);
+            this.btnProduct.TabIndex = 40;
             this.btnProduct.Text = "  Sản Phẩm";
             this.btnProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -413,8 +397,8 @@ namespace HoaYeuThuong
             this.btnCart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCart.Location = new System.Drawing.Point(0, 70);
             this.btnCart.Name = "btnCart";
-            this.btnCart.Size = new System.Drawing.Size(263, 70);
-            this.btnCart.TabIndex = 28;
+            this.btnCart.Size = new System.Drawing.Size(246, 70);
+            this.btnCart.TabIndex = 39;
             this.btnCart.Text = "  Giỏ Hàng";
             this.btnCart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCart.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -432,33 +416,13 @@ namespace HoaYeuThuong
             this.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProfile.Location = new System.Drawing.Point(0, 0);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(263, 70);
+            this.btnProfile.Size = new System.Drawing.Size(246, 70);
             this.btnProfile.TabIndex = 21;
             this.btnProfile.Text = "  Hồ Sơ";
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProfile.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 511);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(263, 70);
-            this.btnLogout.TabIndex = 20;
-            this.btnLogout.Text = "  Đăng Xuất";
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // logoPic
             // 
@@ -484,6 +448,45 @@ namespace HoaYeuThuong
             this.userAvatar.TabIndex = 3;
             this.userAvatar.TabStop = false;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 630);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(246, 70);
+            this.btnLogout.TabIndex = 20;
+            this.btnLogout.Text = "  Đăng Xuất";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnCreateAccout
+            // 
+            this.btnCreateAccout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateAccout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreateAccout.FlatAppearance.BorderSize = 0;
+            this.btnCreateAccout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccout.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAccout.Image = global::HoaYeuThuong.Properties.Resources.createAccount;
+            this.btnCreateAccout.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCreateAccout.Location = new System.Drawing.Point(0, 560);
+            this.btnCreateAccout.Name = "btnCreateAccout";
+            this.btnCreateAccout.Size = new System.Drawing.Size(246, 70);
+            this.btnCreateAccout.TabIndex = 55;
+            this.btnCreateAccout.Text = "  Tài Khoản";
+            this.btnCreateAccout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateAccout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCreateAccout.UseVisualStyleBackColor = true;
+            this.btnCreateAccout.Click += new System.EventHandler(this.btnCreateAccout_Click);
+            // 
             // btnOrderForCustomer
             // 
             this.btnOrderForCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -495,13 +498,32 @@ namespace HoaYeuThuong
             this.btnOrderForCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOrderForCustomer.Location = new System.Drawing.Point(0, 490);
             this.btnOrderForCustomer.Name = "btnOrderForCustomer";
-            this.btnOrderForCustomer.Size = new System.Drawing.Size(263, 70);
-            this.btnOrderForCustomer.TabIndex = 36;
+            this.btnOrderForCustomer.Size = new System.Drawing.Size(246, 70);
+            this.btnOrderForCustomer.TabIndex = 54;
             this.btnOrderForCustomer.Text = "  Tạo Đơn";
             this.btnOrderForCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrderForCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnOrderForCustomer.UseVisualStyleBackColor = true;
             this.btnOrderForCustomer.Click += new System.EventHandler(this.btnOrderForCustomer_Click);
+            // 
+            // btnMoney
+            // 
+            this.btnMoney.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMoney.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMoney.FlatAppearance.BorderSize = 0;
+            this.btnMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoney.Image = ((System.Drawing.Image)(resources.GetObject("btnMoney.Image")));
+            this.btnMoney.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMoney.Location = new System.Drawing.Point(0, 420);
+            this.btnMoney.Name = "btnMoney";
+            this.btnMoney.Size = new System.Drawing.Size(246, 70);
+            this.btnMoney.TabIndex = 53;
+            this.btnMoney.Text = "  Thu Nhập";
+            this.btnMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMoney.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnMoney.UseVisualStyleBackColor = true;
+            this.btnMoney.Click += new System.EventHandler(this.btnMoney_Click);
             // 
             // HomeForm
             // 
@@ -541,7 +563,6 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Panel navMenu;
         private System.Windows.Forms.Button btnProfile;
-        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel childFormPanel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -557,12 +578,14 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox userAvatar;
         private System.Windows.Forms.Label greetingLabel;
-        private System.Windows.Forms.Button btnCart;
-        private System.Windows.Forms.Button btnMoney;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnProduct;
+        private System.Windows.Forms.Button btnCart;
+        private System.Windows.Forms.Button btnCreateAccout;
         private System.Windows.Forms.Button btnOrderForCustomer;
+        private System.Windows.Forms.Button btnMoney;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
