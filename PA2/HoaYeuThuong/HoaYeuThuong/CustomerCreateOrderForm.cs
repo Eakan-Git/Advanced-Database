@@ -31,9 +31,9 @@ namespace HoaYeuThuong
         private void placeOrder()
         {
             SqlCommand cmd = new SqlCommand(@"exec taoDH @VOUCHER, @TK_ID, @SDT_DAT, @TEN_DAT, @DIACHI_DAT, @SDT_NHAN, @TEN_NHAN, @DIACHI_NHAN, @ANDANH, @LOINHAN, @NOTE, @GTGT, @PHUPHI, @THOIGIANDATHANG", connection);
-            if (tbVoucher.Text == "")
+            if (String.IsNullOrEmpty(tbVoucher.Text))
             {
-                cmd.Parameters.AddWithValue("@VOUCHER", null);
+                cmd.Parameters.AddWithValue("@VOUCHER", "");
             }
             else
             {
