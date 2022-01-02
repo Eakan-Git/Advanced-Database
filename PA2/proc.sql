@@ -372,7 +372,7 @@ begin
 	set @spid = (select SP_ID from SANPHAM where SP_TEN = @ten)
 	delete from CHITIETGIOHANG where TK_ID=@tkid and SP_ID=@spid
 end
---select * from TAIKHOAN
+--select * from DONHANG
 go
 create or alter proc KH_Xem_DH
 @ID_DH int
@@ -435,3 +435,45 @@ begin
 	where TK_ID = @ID
 end
 go
+
+create or alter proc checklistDH
+@offset int,
+@fetch int,
+@TINHTRANG nvarchar(50)
+as
+begin
+	select ID_DH as N'Mã Đơn', SDT_DAT as N'SĐT Đặt', TEN_DAT as N'Người Đặt', THOIGIANDATHANG as N'Ngày Đặt', THOIGIANNHANHANG as N'Ngày Nhận', THANHTIEN as N'Thành Tiền'
+	from DONHANG where TINHTRANG=@TINHTRANG
+	order by ID_DH
+	OFFSET @offset rows
+	fetch next @fetch rows only
+end
+go
+--exec checklistDH 0, 10, N'Đang giao'
+
+create or alter proc NV_TimKiem_DH_Theo_SDTDAT
+@SDT char(10)
+as
+begin
+	select ID_DH as N'Mã Đơn', SDT_DAT as N'SĐT Đặt', TEN_DAT as N'Người Đặt', THOIGIANDATHANG as N'Ngày Đặt', THOIGIANNHANHANG as N'Ngày Nhận', TINHTRANG as N'Tình Trạng',THANHTIEN as N'Thành Tiền'
+	from DONHANG where SDT_DAT = @SDT
+end
+go
+--exec NV_TimKiem_DH_Theo_SDTDAT '015489628 '
+
+--select * from TAIKHOAN
+
+create or alter proc Xem_SP_DH
+@ID_DH int
+as
+begin
+	select tk.HOTEN,tk.TK_SDT
+	from DONHANG dh, TAIKHOAN tk
+	where dh.ID_DH = @ID_DH and tk.TK_ID = dh.TK_ID
+
+	select ctdh.SP_ID as N'Mã Sản Phẩm',sp.SP_TEN as N'Tên Sản Phẩm', ctdh.GIABAN as N'Giá',ctdh.SOLUONG as N'Số Lượng', ctdh.TONGTIEN as N'Tổng Tiền'
+	from DONHANG dh, CHITIETDONHANG ctdh, SANPHAM sp
+	where dh.ID_DH = @ID_DH and dh.ID_DH = ctdh.ID_DH and ctdh.SP_ID = sp.SP_ID
+end
+
+--exec Xem_SP_DH 68
