@@ -205,6 +205,7 @@ namespace HoaYeuThuong
             this.btnPurchase.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPurchase.UseVisualStyleBackColor = true;
+            this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
             // 
             // quantityLabel
             // 

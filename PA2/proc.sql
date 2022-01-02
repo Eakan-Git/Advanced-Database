@@ -378,5 +378,60 @@ create or alter proc KH_Xem_DH
 @ID_DH int
 as
 begin
-	select * from DONHANG where ID_DH = @ID_DH
+	select dh.*, tt.THANHTOAN_TYPE, tt.TRANGTHAI from DONHANG dh, THANHTOAN tt
+	where dh.ID_DH = @ID_DH and dh.ID_DH = tt.ID_DH
 end
+go
+--exec KH_Xem_DH 14667
+
+create or alter proc NV_XemDanhSach_KH
+@offset int,
+@rows int
+as
+begin
+	select TK.TK_ID as N'Mã Số', HOTEN as N'Họ Và Tên', TK_SDT as N'Số Điện Thoại', TK_CMND as N'CMND',TK_STATUS as N'Hoạt Động'
+	from TAIKHOAN TK, KHACHHANG KH
+	where TK.TK_ID = KH.TK_ID and TK.TK_ROLE = 0
+	order by TK.TK_ID
+	offset @offset rows
+	fetch next @rows rows only
+end
+go
+--exec NV_XemDanhSach_KH 10, 10
+
+create or alter proc NV_XemThongTin_KH
+@ID int
+as
+begin
+	select TK_ID, HOTEN, TK_SDT, TK_DIACHI, TK_EMAIL, TK_CMND
+	from TAIKHOAN
+	where TK_ID = @ID and TK_ROLE = 0
+end
+go
+
+--exec NV_XemThongTin_KH 501
+
+create or alter proc timKiemKhachHang
+@SDT char(10)
+as
+begin
+	select TK.TK_ID as N'Mã Số', HOTEN as N'Họ Và Tên', TK_SDT as N'Số Điện Thoại', TK_CMND as N'CMND',TK_STATUS as N'Hoạt Động'
+	from TAIKHOAN TK, KHACHHANG KH
+	where TK.TK_ID = KH.TK_ID and TK.TK_ROLE = 0 and TK_SDT = @SDT
+end
+go
+--exec timKiemNhanVien 372061574
+
+create or alter proc updateKH
+@ID int,
+@HOTEN nvarchar(50),
+@SDT char(10),
+@DIACHI nvarchar(50),
+@EMAIL varchar(50),
+@CMND char(9)
+as
+begin
+	update TAIKHOAN set HOTEN=@HOTEN,TK_SDT=@SDT,TK_DIACHI=@DIACHI,TK_EMAIL=@EMAIL,TK_CMND=@CMND
+	where TK_ID = @ID
+end
+go
