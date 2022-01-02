@@ -164,6 +164,9 @@ namespace HoaYeuThuong
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(152, 20);
             this.searchBox.TabIndex = 2;
+            this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
+            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
+            this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
             // 
             // btnNext
             // 
