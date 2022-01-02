@@ -27,6 +27,8 @@ namespace HoaYeuThuong
             connection.Open();
             offset = 0;
             searchBox.Text = placeholder;
+            btnLock.Enabled = false;
+            btnUnlock.Enabled = false;
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace HoaYeuThuong
                         DialogResult confirm = MessageBox.Show("Xác nhận cập nhật khách hàng này?", "Cập Nhật Khách Hàng", MessageBoxButtons.YesNo);
                         if (confirm == DialogResult.Yes)
                         {
-                            SqlCommand cmd = new SqlCommand("exec updateNV @ID, @TEN, @SDT, @DIACHI, @EMAIL, @CMND, @CN_ID", connection);
+                            SqlCommand cmd = new SqlCommand("exec updateKH @ID, @TEN, @SDT, @DIACHI, @EMAIL, @CMND", connection);
                             cmd.Parameters.AddWithValue("@ID", tbID.Text);
                             cmd.Parameters.AddWithValue("@TEN", tbName.Text);
                             cmd.Parameters.AddWithValue("@SDT", tbPhone.Text);
