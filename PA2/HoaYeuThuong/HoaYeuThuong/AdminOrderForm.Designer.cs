@@ -29,8 +29,9 @@ namespace HoaYeuThuong
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelOrder = new System.Windows.Forms.Panel();
+            this.btnReload = new System.Windows.Forms.Button();
             this.labelPhone = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.type = new System.Windows.Forms.ComboBox();
@@ -38,6 +39,9 @@ namespace HoaYeuThuong
             this.panel3 = new System.Windows.Forms.Panel();
             this.OrderDGV = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnShipped = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
@@ -49,10 +53,6 @@ namespace HoaYeuThuong
             this.panelDetailDGV = new System.Windows.Forms.Panel();
             this.DetailOrderDGV = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.btnShipped = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnCheck = new System.Windows.Forms.Button();
             this.panelOrder.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -80,6 +80,17 @@ namespace HoaYeuThuong
             this.panelOrder.Name = "panelOrder";
             this.panelOrder.Size = new System.Drawing.Size(808, 412);
             this.panelOrder.TabIndex = 3;
+            // 
+            // btnReload
+            // 
+            this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReload.Image = global::HoaYeuThuong.Properties.Resources.reload;
+            this.btnReload.Location = new System.Drawing.Point(707, 73);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(29, 24);
+            this.btnReload.TabIndex = 13;
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // labelPhone
             // 
@@ -151,8 +162,8 @@ namespace HoaYeuThuong
             this.OrderDGV.Name = "OrderDGV";
             this.OrderDGV.ReadOnly = true;
             this.OrderDGV.RowHeadersWidth = 62;
-            dataGridViewCellStyle1.NullValue = "Không xác định";
-            this.OrderDGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.NullValue = "Không xác định";
+            this.OrderDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.OrderDGV.RowTemplate.Height = 28;
             this.OrderDGV.RowTemplate.ReadOnly = true;
             this.OrderDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -171,6 +182,66 @@ namespace HoaYeuThuong
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(72, 270);
             this.panel2.TabIndex = 0;
+            // 
+            // btnShipped
+            // 
+            this.btnShipped.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShipped.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnShipped.FlatAppearance.BorderSize = 0;
+            this.btnShipped.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnShipped.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnShipped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShipped.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShipped.Image = global::HoaYeuThuong.Properties.Resources.shipped_2;
+            this.btnShipped.Location = new System.Drawing.Point(0, 180);
+            this.btnShipped.Name = "btnShipped";
+            this.btnShipped.Size = new System.Drawing.Size(72, 90);
+            this.btnShipped.TabIndex = 29;
+            this.btnShipped.Text = "Xong";
+            this.btnShipped.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnShipped.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnShipped.UseVisualStyleBackColor = true;
+            this.btnShipped.Click += new System.EventHandler(this.btnShipped_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = global::HoaYeuThuong.Properties.Resources.delete_32;
+            this.btnCancel.Location = new System.Drawing.Point(0, 90);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(72, 90);
+            this.btnCancel.TabIndex = 28;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheck.FlatAppearance.BorderSize = 0;
+            this.btnCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheck.Image = global::HoaYeuThuong.Properties.Resources.verify32;
+            this.btnCheck.Location = new System.Drawing.Point(0, 0);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(72, 90);
+            this.btnCheck.TabIndex = 27;
+            this.btnCheck.Text = "Duyệt";
+            this.btnCheck.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // label1
             // 
@@ -294,6 +365,8 @@ namespace HoaYeuThuong
             this.DetailOrderDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DetailOrderDGV.Size = new System.Drawing.Size(736, 119);
             this.DetailOrderDGV.TabIndex = 3;
+            this.DetailOrderDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DetailOrderDGV_CellDoubleClick);
+            this.DetailOrderDGV.DoubleClick += new System.EventHandler(this.DetailOrderDGV_DoubleClick);
             // 
             // panel4
             // 
@@ -302,77 +375,6 @@ namespace HoaYeuThuong
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(72, 119);
             this.panel4.TabIndex = 0;
-            // 
-            // btnReload
-            // 
-            this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReload.Image = global::HoaYeuThuong.Properties.Resources.reload;
-            this.btnReload.Location = new System.Drawing.Point(707, 73);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(29, 24);
-            this.btnReload.TabIndex = 13;
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // btnShipped
-            // 
-            this.btnShipped.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShipped.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnShipped.FlatAppearance.BorderSize = 0;
-            this.btnShipped.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnShipped.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnShipped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShipped.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShipped.Image = global::HoaYeuThuong.Properties.Resources.shipped_2;
-            this.btnShipped.Location = new System.Drawing.Point(0, 180);
-            this.btnShipped.Name = "btnShipped";
-            this.btnShipped.Size = new System.Drawing.Size(72, 90);
-            this.btnShipped.TabIndex = 29;
-            this.btnShipped.Text = "Xong";
-            this.btnShipped.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnShipped.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnShipped.UseVisualStyleBackColor = true;
-            this.btnShipped.Click += new System.EventHandler(this.btnShipped_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = global::HoaYeuThuong.Properties.Resources.delete_32;
-            this.btnCancel.Location = new System.Drawing.Point(0, 90);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(72, 90);
-            this.btnCancel.TabIndex = 28;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCheck.FlatAppearance.BorderSize = 0;
-            this.btnCheck.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnCheck.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Image = global::HoaYeuThuong.Properties.Resources.verify32;
-            this.btnCheck.Location = new System.Drawing.Point(0, 0);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(72, 90);
-            this.btnCheck.TabIndex = 27;
-            this.btnCheck.Text = "Duyệt";
-            this.btnCheck.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // AdminOrderForm
             // 

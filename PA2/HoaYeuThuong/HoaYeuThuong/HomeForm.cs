@@ -152,6 +152,14 @@ namespace HoaYeuThuong
             navMenu.Top = btnCreateAccout.Top;
             navMenu.Visible = true;
             navMenu.BringToFront();
+            if(role == MANAGER)
+            {
+                OpenChildForm(new CreateAccountForm(MANAGER));
+            }
+            else
+            {
+                OpenChildForm(new CreateAccountForm(STAFF));
+            }
         }
 
         private void HomeForm_Load(object sender, EventArgs e)

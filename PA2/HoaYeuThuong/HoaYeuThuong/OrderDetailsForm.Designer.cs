@@ -422,6 +422,7 @@ namespace HoaYeuThuong
             // 
             // GTGT
             // 
+            this.GTGT.AutoCheck = false;
             this.GTGT.AutoSize = true;
             this.GTGT.Location = new System.Drawing.Point(81, 138);
             this.GTGT.Name = "GTGT";
@@ -432,6 +433,7 @@ namespace HoaYeuThuong
             // 
             // anonymous
             // 
+            this.anonymous.AutoCheck = false;
             this.anonymous.AutoSize = true;
             this.anonymous.Location = new System.Drawing.Point(271, 138);
             this.anonymous.Name = "anonymous";

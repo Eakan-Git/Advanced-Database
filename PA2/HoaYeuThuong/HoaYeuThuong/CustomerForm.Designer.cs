@@ -87,7 +87,7 @@ namespace HoaYeuThuong
             this.btnUnlock.Location = new System.Drawing.Point(0, 388);
             this.btnUnlock.Name = "btnUnlock";
             this.btnUnlock.Size = new System.Drawing.Size(72, 195);
-            this.btnUnlock.TabIndex = 28;
+            this.btnUnlock.TabIndex = 3;
             this.btnUnlock.Text = "Mở Khóa";
             this.btnUnlock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnUnlock.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@ namespace HoaYeuThuong
             this.btnLock.Location = new System.Drawing.Point(0, 194);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(72, 194);
-            this.btnLock.TabIndex = 27;
+            this.btnLock.TabIndex = 2;
             this.btnLock.Text = "Khóa";
             this.btnLock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLock.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@ namespace HoaYeuThuong
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(72, 194);
-            this.btnSave.TabIndex = 26;
+            this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Lưu";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -152,7 +152,7 @@ namespace HoaYeuThuong
             this.searchBtn.Location = new System.Drawing.Point(334, 37);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(75, 23);
-            this.searchBtn.TabIndex = 5;
+            this.searchBtn.TabIndex = 8;
             this.searchBtn.Text = "Tìm";
             this.searchBtn.UseVisualStyleBackColor = false;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
@@ -163,7 +163,7 @@ namespace HoaYeuThuong
             this.searchBox.Location = new System.Drawing.Point(293, 10);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(152, 20);
-            this.searchBox.TabIndex = 2;
+            this.searchBox.TabIndex = 7;
             this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
             this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
@@ -234,7 +234,7 @@ namespace HoaYeuThuong
             this.tbCMND.Location = new System.Drawing.Point(284, 119);
             this.tbCMND.Name = "tbCMND";
             this.tbCMND.Size = new System.Drawing.Size(161, 20);
-            this.tbCMND.TabIndex = 22;
+            this.tbCMND.TabIndex = 3;
             // 
             // labelID
             // 
@@ -251,7 +251,7 @@ namespace HoaYeuThuong
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(161, 20);
-            this.tbID.TabIndex = 17;
+            this.tbID.TabIndex = 1;
             // 
             // emailLabel
             // 
@@ -269,7 +269,7 @@ namespace HoaYeuThuong
             this.tbEmail.Location = new System.Drawing.Point(507, 170);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(161, 20);
-            this.tbEmail.TabIndex = 15;
+            this.tbEmail.TabIndex = 6;
             // 
             // btnReload
             // 
@@ -336,14 +336,14 @@ namespace HoaYeuThuong
             this.tbAddress.Location = new System.Drawing.Point(507, 119);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(161, 20);
-            this.tbAddress.TabIndex = 2;
+            this.tbAddress.TabIndex = 5;
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(53, 169);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(161, 20);
-            this.tbName.TabIndex = 1;
+            this.tbName.TabIndex = 2;
             // 
             // customerDGV
             // 
