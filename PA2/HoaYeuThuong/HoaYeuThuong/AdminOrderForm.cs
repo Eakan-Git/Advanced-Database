@@ -27,7 +27,6 @@ namespace HoaYeuThuong
         public AdminOrderForm()
         {
             InitializeComponent();
-            type.SelectedValue = DANGXULI;
             searchBox.Text = placeholder;
             connection = new SqlConnection(str);
             connection.Open();
@@ -81,16 +80,8 @@ namespace HoaYeuThuong
                 loadOrderList(DAHUY);
             }
         }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
+        private void refresh()
         {
-            offset -= maxRowsPerPage;
-            if (offset <= 0)
-            {
-                offset = 0;
-                btnPrevious.Enabled = false;
-            }
-            btnNext.Enabled = true;
             if (type.SelectedIndex == DANGXULI)
             {
                 loadOrderList(DANGXULI);
@@ -108,6 +99,17 @@ namespace HoaYeuThuong
                 loadOrderList(DAHUY);
             }
         }
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            offset -= maxRowsPerPage;
+            if (offset <= 0)
+            {
+                offset = 0;
+                btnPrevious.Enabled = false;
+            }
+            btnNext.Enabled = true;
+            refresh();
+        }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -115,22 +117,7 @@ namespace HoaYeuThuong
             offset += maxRowsPerPage;
             try
             {
-                if (type.SelectedIndex == DANGXULI)
-                {
-                    loadOrderList(DANGXULI);
-                }
-                else if (type.SelectedIndex == DANGGIAO)
-                {
-                    loadOrderList(DANGGIAO);
-                }
-                else if (type.SelectedIndex == DAGIAO)
-                {
-                    loadOrderList(DAGIAO);
-                }
-                else if (type.SelectedIndex == DAHUY)
-                {
-                    loadOrderList(DAHUY);
-                }
+                refresh();
                 btnPrevious.Enabled = true;
             }
             catch (Exception)
@@ -174,29 +161,19 @@ namespace HoaYeuThuong
             btnCancel.Enabled = false;
             btnCheck.Enabled = false;
             btnShipped.Enabled = false;
+            type.SelectedIndex = DANGXULI;
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
             offset = 0;
-            if (type.SelectedIndex == DANGXULI)
-            {
-                loadOrderList(DANGXULI);
-            }
-            else if (type.SelectedIndex == DANGGIAO)
-            {
-                loadOrderList(DANGGIAO);
-            }
-            else if (type.SelectedIndex == DAGIAO)
-            {
-                loadOrderList(DAGIAO);
-            }
-            else if (type.SelectedIndex == DAHUY)
-            {
-                loadOrderList(DAHUY);
-            }
+            refresh();
         }
-
+        private void popProductImage()
+        {
+            Form form = new ProductImage(Convert.ToInt32(DetailOrderDGV.SelectedRows[0].Cells[0].Value));
+            form.Show();
+        }
         private void btnCheck_Click(object sender, EventArgs e)
         {
 
@@ -253,6 +230,16 @@ namespace HoaYeuThuong
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void DetailOrderDGV_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DetailOrderDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            popProductImage();
         }
     }
 }

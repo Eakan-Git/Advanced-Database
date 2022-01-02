@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace HoaYeuThuong
 {
     public partial class CustomerOrderForm : Form
     {
+        CultureInfo provider = CultureInfo.InvariantCulture;
         SqlConnection connection;
         SqlDataAdapter adapter = new SqlDataAdapter();
         string str = @"Data Source=(local);Initial Catalog=Hoayeuthuong;Integrated Security=True";
@@ -99,11 +101,11 @@ namespace HoaYeuThuong
                 GTGT.ForeColor = Color.Black;
             }
 
-            placedTime.Text = "Ngày đặt: " + dt.Rows[0]["THOIGIANDATHANG"].ToString();
-            
-            if(dt.Rows[0]["THOIGIANNHANHANG"] != null)
+            placedTime.Text = "Ngày đặt: " + Convert.ToDateTime(orderDGV.SelectedRows[0].Cells[3].Value).Date.ToString("MM/dd/yyyy");
+
+            if (orderDGV.SelectedRows[0].Cells[4].Value != null)
             {
-                deliveryTime.Text = "Ngày nhận: " + dt.Rows[0]["THOIGIANNHANHANG"].ToString();
+                deliveryTime.Text = "Ngày giao: " + Convert.ToDateTime(orderDGV.SelectedRows[0].Cells[4].Value).Date.ToString("MM/dd/yyyy");                
             }    
             else
             {
@@ -114,25 +116,6 @@ namespace HoaYeuThuong
             extraCost.Text = "Phụ phí: " + dt.Rows[0]["PHUPHI"].ToString();
             voucher.Text = "Giảm giá: " + dt.Rows[0]["GIAGIAM"].ToString();
             total.Text = "Thành tiền: " + dt.Rows[0]["THANHTIEN"].ToString();
-            if(dt.Rows[0]["THANHTOAN_TYPE"].Equals(true))
-            {
-                type.Text = "Thanh toán: Chuyển khoản";
-            }   
-            else
-            {
-                type.Text = "Thanh toán: Tiền mặt";
-            }
-
-            if(dt.Rows[0]["TRANGTHAI"].Equals(true))
-            {
-                payStatus.Text = "Đã thanh toán";
-                payStatus.ForeColor = Color.Green;
-            }   
-            else
-            {
-                payStatus.Text = "Chưa thanh toán";
-                payStatus.ForeColor = Color.Red;
-            }    
 
             nameFrom.Visible = true;
             phoneFrom.Visible = true;
@@ -152,31 +135,29 @@ namespace HoaYeuThuong
             extraCost.Visible = true;
             voucher.Visible = true;
             total.Visible = true;
-            type.Visible = true;
-            payStatus.Visible = true;
 
-            if(dt.Rows[0]["THOIGIANNHANHANG"] == null)
+            if(orderDGV.SelectedRows[0].Cells[4].Value.Equals(null))
             {
-                btnCancel.Enabled = true;
-                if(dt.Rows[0]["TRANGTHAI"].Equals(false))
-                {
-                    btnPay.Enabled = true;
-                    payState = true;
-                }    
-                else
-                {
-                    btnPay.Enabled = false;
-                    payState = false;
-                }    
+                type.Visible = false;
+                payStatus.Visible = false;
             }    
             else
             {
-                btnCancel.Enabled = false;
+                //type.Text = "type";
+                //type.Visible = true;
+                //payStatus.Visible = true;
             }    
         }
         private void orderDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            loadDetailedOrder();
+            try
+            {
+                loadDetailedOrder();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ namespace HoaYeuThuong
         string salePriceDefault = "Giá món hàng: ";
         string totalDefault = "Tổng tiền: ";
         int price;
+        int totalPrice;
         public CartForm(string _ID)
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace HoaYeuThuong
                 adapter.SelectCommand = cmd;
                 adapter.Fill(dt);
                 labelTotal.Text = totalDefault + dt.Rows[0][0].ToString() + "đ";
+                totalPrice = Convert.ToInt32(dt.Rows[0][0]);
                 labelTotal.Visible = true;
             }
             catch(Exception ex)
@@ -159,7 +161,7 @@ namespace HoaYeuThuong
 
         private void btnPurchase_Click(object sender, EventArgs e)
         {
-            Form form = new CustomerCreateOrderForm(ID);
+            Form form = new CustomerCreateOrderForm(ID, totalPrice);
             form.Show();
         }
     }

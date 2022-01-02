@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HoaYeuThuong
 {
@@ -23,6 +24,22 @@ namespace HoaYeuThuong
         }
 
         private void btnFetch_Click(object sender, EventArgs e)
+        {
+            if(dtpFrom.Value >= dtpTo.Value)
+            {
+                MessageBox.Show("Thời gian không hợp lệ");
+            }
+            else if(cbbDepartment.SelectedValue == null)
+            {
+                MessageBox.Show("Chi nhánh không hợp lệ");
+            }
+            else
+            {
+
+            }
+        }
+
+        private void cbbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

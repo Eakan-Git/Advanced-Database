@@ -31,6 +31,7 @@ namespace HoaYeuThuong
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelName = new System.Windows.Forms.Label();
             this.panelBtn = new System.Windows.Forms.Panel();
@@ -41,6 +42,8 @@ namespace HoaYeuThuong
             this.panelData = new System.Windows.Forms.Panel();
             this.panelDetail = new System.Windows.Forms.Panel();
             this.panelDetailRight = new System.Windows.Forms.Panel();
+            this.payStatus = new System.Windows.Forms.Label();
+            this.type = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
             this.voucher = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.Label();
@@ -59,8 +62,6 @@ namespace HoaYeuThuong
             this.nameFrom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.note = new System.Windows.Forms.Label();
-            this.type = new System.Windows.Forms.Label();
-            this.payStatus = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             this.panelBtn.SuspendLayout();
             this.panelDGV.SuspendLayout();
@@ -157,27 +158,29 @@ namespace HoaYeuThuong
             this.orderDGV.AllowUserToDeleteRows = false;
             this.orderDGV.AllowUserToResizeColumns = false;
             this.orderDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.NullValue = "Không có";
+            this.orderDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.orderDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.orderDGV.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = "Không xác định";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orderDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.orderDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.NullValue = "Không xác định";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orderDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.orderDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.orderDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orderDGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.orderDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orderDGV.GridColor = System.Drawing.Color.Gainsboro;
             this.orderDGV.Location = new System.Drawing.Point(0, 0);
@@ -230,6 +233,30 @@ namespace HoaYeuThuong
             this.panelDetailRight.Name = "panelDetailRight";
             this.panelDetailRight.Size = new System.Drawing.Size(264, 302);
             this.panelDetailRight.TabIndex = 5;
+            // 
+            // payStatus
+            // 
+            this.payStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.payStatus.AutoSize = true;
+            this.payStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payStatus.Location = new System.Drawing.Point(3, 234);
+            this.payStatus.Name = "payStatus";
+            this.payStatus.Size = new System.Drawing.Size(81, 20);
+            this.payStatus.TabIndex = 14;
+            this.payStatus.Text = "payStatus";
+            this.payStatus.Visible = false;
+            // 
+            // type
+            // 
+            this.type.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.type.AutoSize = true;
+            this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.type.Location = new System.Drawing.Point(3, 206);
+            this.type.Name = "type";
+            this.type.Size = new System.Drawing.Size(39, 20);
+            this.type.TabIndex = 13;
+            this.type.Text = "type";
+            this.type.Visible = false;
             // 
             // total
             // 
@@ -448,30 +475,6 @@ namespace HoaYeuThuong
             this.note.Text = "note";
             this.note.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.note.Visible = false;
-            // 
-            // type
-            // 
-            this.type.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.type.AutoSize = true;
-            this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type.Location = new System.Drawing.Point(3, 206);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(39, 20);
-            this.type.TabIndex = 13;
-            this.type.Text = "type";
-            this.type.Visible = false;
-            // 
-            // payStatus
-            // 
-            this.payStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.payStatus.AutoSize = true;
-            this.payStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payStatus.Location = new System.Drawing.Point(3, 234);
-            this.payStatus.Name = "payStatus";
-            this.payStatus.Size = new System.Drawing.Size(81, 20);
-            this.payStatus.TabIndex = 14;
-            this.payStatus.Text = "payStatus";
-            this.payStatus.Visible = false;
             // 
             // CustomerOrderForm
             // 

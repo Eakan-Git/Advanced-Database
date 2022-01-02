@@ -41,8 +41,8 @@ order by THOIGIANDATHANG ASC
 OFFSET @offset rows
 fetch next @fetch rows only;
 
-exec checklistDangGiao 0, 20
-exec checklistDangXuLy 0, 20
+--exec checklistDangGiao 0, 20
+--exec checklistDangXuLy 0, 20
 
 --update DONHANG SET THOIGIANNHANHANG = null WHERE TINHTRANG != N'Đã giao'
 --update THANHTOAN set TRANGTHAI = 1 WHERE ID_DH in (SELECT ID_DH FROM DONHANG WHERE TINHTRANG = N'Đang giao') and THANHTOAN_TYPE = 1
@@ -260,6 +260,26 @@ order by sum(SOLUONG) DESC
 go
 --exec top10product
 
+create or alter proc taoAccNV
+@username varchar(30),
+@password varchar(30),
+@hoten nvarchar(50),
+@email varchar(50),
+@cmnd char(9),
+@diachi nvarchar(50),
+@sdt char(10),
+@CN_ID int
+as
+begin
+	declare @TK_ID int
+	insert into TAIKHOAN(TK_USERNAME,TK_PASSWORD,HOTEN, TK_STATUS, TK_ROLE,TK_EMAIL,TK_CMND,TK_DIACHI,TK_SDT) 
+	values (@username,@password,@hoten,1,1,@email,@cmnd,@diachi,@sdt)
+	set @TK_ID = (select TK_ID from TAIKHOAN where TK_SDT = @sdt)
+	insert into NHANVIEN(TK_ID, CN_ID)
+	values(@TK_ID, @CN_ID)
+end
+go
+
 create or alter proc taoAccKhachHang
 @username varchar(30),
 @password varchar(30),
@@ -378,8 +398,9 @@ create or alter proc KH_Xem_DH
 @ID_DH int
 as
 begin
-	select dh.*, tt.THANHTOAN_TYPE, tt.TRANGTHAI from DONHANG dh, THANHTOAN tt
-	where dh.ID_DH = @ID_DH and dh.ID_DH = tt.ID_DH
+	select dh.*
+	from DONHANG dh
+	where dh.ID_DH = @ID_DH
 end
 go
 --exec KH_Xem_DH 14667
@@ -475,5 +496,130 @@ begin
 	from DONHANG dh, CHITIETDONHANG ctdh, SANPHAM sp
 	where dh.ID_DH = @ID_DH and dh.ID_DH = ctdh.ID_DH and ctdh.SP_ID = sp.SP_ID
 end
-
+go
 --exec Xem_SP_DH 68
+create OR ALTER proc Return_ID_Voucher
+@Voucher_Masudung char
+as 
+BEGIN
+declare @Voucher_ID int
+SET @Voucher_ID = (SELECT Voucher_ID FROM VOUCHER WHERE VOUCHER_MASUDUNG=@Voucher_Masudung AND USED = 0)
+RETURN @Voucher_ID 
+END
+GO
+
+--DECLARE @return_value int
+--EXEC @return_value  = Return_ID_Voucher 'advsfad'
+--IF @return_value = 0 SET @return_value = NULL
+--SELECT    'Return Value' = @return_value
+--GO
+
+create or alter proc taoDHcovoucher
+@vouchermasudung char(20),@tkid int,@sdtdat char(10),@tendat nvarchar(50),
+    @diachidat nvarchar(50),@sdtnhan char(10),@tennhan nvarchar(50),@diachinhan nvarchar(50),
+    @andanh bit,@loinhan nvarchar(100),@note nvarchar(100),@xuatgtgt bit,@phuphi money,
+    @thoigiandathang date,@thoigiannhanhang date,@tinhtrang nvarchar(50),@giagiam MONEY
+AS
+BEGIN    
+DECLARE @return_value int
+EXEC @return_value  = Return_ID_Voucher @vouchermasudung
+IF @return_value = 0 SET @return_value = NULL
+insert into DONHANG(VOUCHER_ID,TK_ID,SDT_DAT,TEN_DAT,DIACHI_DAT,SDT_NHAN,TEN_NHAN,
+    DIACHI_NHAN,ANDANH,LOINHAN,NOTE,XUAT_GTGT,PHUPHI,THOIGIANDATHANG,THOIGIANNHANHANG,
+    TINHTRANG,GIAGIAM, THANHTIEN)
+values (@return_value,@tkid,@sdtdat,@tendat,@diachidat,@sdtnhan,@tennhan,@diachinhan,
+    @andanh,@loinhan,@note ,@xuatgtgt ,@phuphi,@thoigiandathang,@thoigiannhanhang,
+    @tinhtrang,@giagiam, 0)
+END
+GO
+
+create or alter proc taoDHkovoucher
+    @tkid int,@sdtdat char(10),@tendat nvarchar(50),
+    @diachidat nvarchar(50),@sdtnhan char(10),@tennhan nvarchar(50),@diachinhan nvarchar(50),
+    @andanh bit,@loinhan nvarchar(100),@note nvarchar(100),@xuatgtgt bit,@phuphi money,
+    @thoigiandathang date,@thoigiannhanhang date,@tinhtrang nvarchar(50),@giagiam MONEY
+AS
+BEGIN    
+insert into DONHANG(TK_ID,SDT_DAT,TEN_DAT,DIACHI_DAT,SDT_NHAN,TEN_NHAN,
+    DIACHI_NHAN,ANDANH,LOINHAN,NOTE,XUAT_GTGT,PHUPHI,THOIGIANDATHANG,THOIGIANNHANHANG,
+    TINHTRANG,GIAGIAM, THANHTIEN)
+values (@tkid,@sdtdat,@tendat,@diachidat,@sdtnhan,@tennhan,@diachinhan,
+    @andanh,@loinhan,@note ,@xuatgtgt ,@phuphi,@thoigiandathang,@thoigiannhanhang,
+    @tinhtrang,@giagiam, 0)
+END
+go
+--select * 
+--from VOUCHER
+--where VOUCHER_MASUDUNG = 'O9NZ6MKFNC4U' and VOUCHER_VALIDATED > '2022-08-23'
+create or alter proc taoDH
+	@masudung varchar(20),
+	@tkid int,
+	@sdtdat char(10),
+	@tendat nvarchar(50),
+	@diachidat nvarchar(50),
+	@sdtnhan char(10),
+	@tennhan nvarchar(50),
+	@diachinhan nvarchar(50),
+	@andanh bit,
+	@loinhan nvarchar(100),
+	@note nvarchar(100),
+	@xuatgtgt bit,
+	@phuphi money,
+	@thoigiandathang date
+as 
+begin
+	declare @Voucher_ID int
+	SET @Voucher_ID = (SELECT Voucher_ID FROM VOUCHER WHERE VOUCHER_MASUDUNG=@masudung AND USED = 0)
+	insert into DONHANG(VOUCHER_ID,TK_ID,SDT_DAT,TEN_DAT,DIACHI_DAT,SDT_NHAN,TEN_NHAN,DIACHI_NHAN,ANDANH,LOINHAN,NOTE,XUAT_GTGT,PHUPHI,THOIGIANDATHANG,THANHTIEN,TINHTRANG,GIAGIAM)
+	values (
+	@Voucher_ID,
+	@tkid,
+	@sdtdat,
+	@tendat,
+	@diachidat,
+	@sdtnhan,
+	@tennhan,
+	@diachinhan,
+	@andanh,
+	@loinhan,
+	@note ,
+	@xuatgtgt ,
+	@phuphi,
+	@thoigiandathang,
+	0,
+	N'Đang xử lý',
+	0)
+	declare @dhid int
+	set @dhid=SCOPE_IDENTITY()
+	insert into CHITIETDONHANG(ID_DH,SP_ID,SOLUONG,GIABAN,TONGTIEN) 
+	select @dhid,CHITIETGIOHANG.SP_ID,SOLUONG,SP_GIABAN,SOLUONG*SP_GIABAN from CHITIETGIOHANG,SANPHAM where TK_ID=@tkid and SANPHAM.SP_ID=CHITIETGIOHANG.SP_ID
+	if(@masudung is NULL)
+	begin
+	update DONHANG
+	set GIAGIAM=0
+	where ID_DH=@dhid
+	end
+	else
+	begin
+	update DONHANG
+	set GIAGIAM=(select sum(TONGTIEN)/100*(select VOUCHER_PERCENT from VOUCHER where VOUCHER_MASUDUNG=@masudung) from CHITIETDONHANG where ID_DH=@dhid)
+	where ID_DH=@dhid
+	end
+	update DONHANG
+	set THANHTIEN=(select sum(TONGTIEN) from CHITIETDONHANG where ID_DH=@dhid)+PHUPHI-GIAGIAM
+	where ID_DH=@dhid
+	delete from CHITIETGIOHANG where TK_ID=@tkid
+	update VOUCHER
+	set USED=1 where VOUCHER_MASUDUNG=@masudung
+end
+--select * from DONHANG where ID_DH = 30853
+--select * from THANHTOAN where ID_DH = 30853
+--select * from VOUCHER where USED = 0
+
+--exec KH_Xem_DH 1771
+
+--select * from TAIKHOAN
+
+exec taoDH null, 20,'0868059405','Duy','SG','0859403043','Truong','SG',0,'ok','ko',0,5000,'05-02-2022'
+
+select * from DONHANG

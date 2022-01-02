@@ -29,21 +29,21 @@ namespace HoaYeuThuong
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelTilte = new System.Windows.Forms.Panel();
+            this.labelTilte = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.btnFetch = new System.Windows.Forms.Button();
+            this.labelTo = new System.Windows.Forms.Label();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.labelFrom = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.panelChart = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.labelFrom = new System.Windows.Forms.Label();
-            this.labelTo = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnFetch = new System.Windows.Forms.Button();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.labelTilte = new System.Windows.Forms.Label();
+            this.cbbDepartment = new System.Windows.Forms.ComboBox();
             this.panelTilte.SuspendLayout();
             this.panelControl.SuspendLayout();
             this.panelChart.SuspendLayout();
@@ -60,6 +60,17 @@ namespace HoaYeuThuong
             this.panelTilte.Size = new System.Drawing.Size(808, 60);
             this.panelTilte.TabIndex = 0;
             // 
+            // labelTilte
+            // 
+            this.labelTilte.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTilte.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTilte.Location = new System.Drawing.Point(0, 0);
+            this.labelTilte.Name = "labelTilte";
+            this.labelTilte.Size = new System.Drawing.Size(808, 60);
+            this.labelTilte.TabIndex = 2;
+            this.labelTilte.Text = "QUẢN LÝ THU NHẬP";
+            this.labelTilte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelTitle
             // 
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,10 +84,10 @@ namespace HoaYeuThuong
             // 
             // panelControl
             // 
-            this.panelControl.Controls.Add(this.btnSelect);
+            this.panelControl.Controls.Add(this.cbbDepartment);
             this.panelControl.Controls.Add(this.btnFetch);
             this.panelControl.Controls.Add(this.labelTo);
-            this.panelControl.Controls.Add(this.dateTimePicker1);
+            this.panelControl.Controls.Add(this.dtpTo);
             this.panelControl.Controls.Add(this.labelFrom);
             this.panelControl.Controls.Add(this.dtpFrom);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Top;
@@ -85,31 +96,46 @@ namespace HoaYeuThuong
             this.panelControl.Size = new System.Drawing.Size(808, 100);
             this.panelControl.TabIndex = 1;
             // 
-            // panelChart
+            // btnFetch
             // 
-            this.panelChart.Controls.Add(this.chart1);
-            this.panelChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChart.Location = new System.Drawing.Point(0, 160);
-            this.panelChart.Name = "panelChart";
-            this.panelChart.Size = new System.Drawing.Size(808, 423);
-            this.panelChart.TabIndex = 2;
+            this.btnFetch.Location = new System.Drawing.Point(691, 77);
+            this.btnFetch.Name = "btnFetch";
+            this.btnFetch.Size = new System.Drawing.Size(75, 23);
+            this.btnFetch.TabIndex = 4;
+            this.btnFetch.Text = "Xem";
+            this.btnFetch.UseVisualStyleBackColor = true;
+            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
             // 
-            // chart1
+            // labelTo
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(42, 21);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(724, 381);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.labelTo.AutoSize = true;
+            this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTo.Location = new System.Drawing.Point(253, 80);
+            this.labelTo.Name = "labelTo";
+            this.labelTo.Size = new System.Drawing.Size(39, 20);
+            this.labelTo.TabIndex = 3;
+            this.labelTo.Text = "Đến";
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Checked = false;
+            this.dtpTo.CustomFormat = "";
+            this.dtpTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(298, 74);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(120, 26);
+            this.dtpTo.TabIndex = 2;
+            // 
+            // labelFrom
+            // 
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFrom.Location = new System.Drawing.Point(40, 80);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(27, 20);
+            this.labelFrom.TabIndex = 1;
+            this.labelFrom.Text = "Từ";
             // 
             // dtpFrom
             // 
@@ -122,67 +148,42 @@ namespace HoaYeuThuong
             this.dtpFrom.Size = new System.Drawing.Size(120, 26);
             this.dtpFrom.TabIndex = 0;
             // 
-            // labelFrom
+            // panelChart
             // 
-            this.labelFrom.AutoSize = true;
-            this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFrom.Location = new System.Drawing.Point(40, 80);
-            this.labelFrom.Name = "labelFrom";
-            this.labelFrom.Size = new System.Drawing.Size(27, 20);
-            this.labelFrom.TabIndex = 1;
-            this.labelFrom.Text = "Từ";
+            this.panelChart.Controls.Add(this.chart1);
+            this.panelChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChart.Location = new System.Drawing.Point(0, 160);
+            this.panelChart.Name = "panelChart";
+            this.panelChart.Size = new System.Drawing.Size(808, 423);
+            this.panelChart.TabIndex = 2;
             // 
-            // labelTo
+            // chart1
             // 
-            this.labelTo.AutoSize = true;
-            this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTo.Location = new System.Drawing.Point(253, 80);
-            this.labelTo.Name = "labelTo";
-            this.labelTo.Size = new System.Drawing.Size(39, 20);
-            this.labelTo.TabIndex = 3;
-            this.labelTo.Text = "Đến";
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(808, 423);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
-            // dateTimePicker1
+            // cbbDepartment
             // 
-            this.dateTimePicker1.Checked = false;
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(298, 74);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(120, 26);
-            this.dateTimePicker1.TabIndex = 2;
-            // 
-            // btnFetch
-            // 
-            this.btnFetch.Location = new System.Drawing.Point(691, 77);
-            this.btnFetch.Name = "btnFetch";
-            this.btnFetch.Size = new System.Drawing.Size(75, 23);
-            this.btnFetch.TabIndex = 4;
-            this.btnFetch.Text = "Xem";
-            this.btnFetch.UseVisualStyleBackColor = true;
-            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(475, 77);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(154, 23);
-            this.btnSelect.TabIndex = 5;
-            this.btnSelect.Text = "Chọn Chi Nhánh";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // labelTilte
-            // 
-            this.labelTilte.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelTilte.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTilte.Location = new System.Drawing.Point(0, 0);
-            this.labelTilte.Name = "labelTilte";
-            this.labelTilte.Size = new System.Drawing.Size(808, 60);
-            this.labelTilte.TabIndex = 2;
-            this.labelTilte.Text = "QUẢN LÝ THU NHẬP";
-            this.labelTilte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbDepartment.FormattingEnabled = true;
+            this.cbbDepartment.Location = new System.Drawing.Point(485, 79);
+            this.cbbDepartment.Name = "cbbDepartment";
+            this.cbbDepartment.Size = new System.Drawing.Size(179, 21);
+            this.cbbDepartment.TabIndex = 5;
+            this.cbbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbbDepartment_SelectedIndexChanged);
             // 
             // MoneyForm
             // 
@@ -213,10 +214,10 @@ namespace HoaYeuThuong
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label labelTo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label labelFrom;
         private System.Windows.Forms.Button btnFetch;
-        private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Label labelTilte;
+        private System.Windows.Forms.ComboBox cbbDepartment;
     }
 }

@@ -92,7 +92,7 @@ namespace HoaYeuThuong
             this.btnUnlock.Location = new System.Drawing.Point(0, 435);
             this.btnUnlock.Name = "btnUnlock";
             this.btnUnlock.Size = new System.Drawing.Size(72, 148);
-            this.btnUnlock.TabIndex = 30;
+            this.btnUnlock.TabIndex = 11;
             this.btnUnlock.Text = "Mở Khóa";
             this.btnUnlock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnUnlock.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@ namespace HoaYeuThuong
             this.btnLock.Location = new System.Drawing.Point(0, 290);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(72, 145);
-            this.btnLock.TabIndex = 28;
+            this.btnLock.TabIndex = 10;
             this.btnLock.Text = "Khóa";
             this.btnLock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLock.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@ namespace HoaYeuThuong
             this.btnSave.Location = new System.Drawing.Point(0, 145);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(72, 145);
-            this.btnSave.TabIndex = 20;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Lưu";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -150,7 +150,7 @@ namespace HoaYeuThuong
             this.btnAdd.Location = new System.Drawing.Point(0, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(72, 145);
-            this.btnAdd.TabIndex = 19;
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -176,7 +176,7 @@ namespace HoaYeuThuong
             this.searchBtn.Location = new System.Drawing.Point(325, 37);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(75, 23);
-            this.searchBtn.TabIndex = 3;
+            this.searchBtn.TabIndex = 4;
             this.searchBtn.Text = "Tìm";
             this.searchBtn.UseVisualStyleBackColor = false;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
@@ -187,7 +187,7 @@ namespace HoaYeuThuong
             this.searchBox.Location = new System.Drawing.Point(284, 10);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(150, 20);
-            this.searchBox.TabIndex = 2;
+            this.searchBox.TabIndex = 3;
             this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
             this.searchBox.Leave += new System.EventHandler(this.searchBox_Leave);
@@ -201,7 +201,7 @@ namespace HoaYeuThuong
             this.btnNext.Location = new System.Drawing.Point(504, 11);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 50);
-            this.btnNext.TabIndex = 1;
+            this.btnNext.TabIndex = 2;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -295,7 +295,7 @@ namespace HoaYeuThuong
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(161, 20);
-            this.tbID.TabIndex = 17;
+            this.tbID.TabIndex = 2;
             // 
             // salePriceLabel
             // 
@@ -313,7 +313,7 @@ namespace HoaYeuThuong
             this.TbSalePrice.Location = new System.Drawing.Point(285, 170);
             this.TbSalePrice.Name = "TbSalePrice";
             this.TbSalePrice.Size = new System.Drawing.Size(161, 20);
-            this.TbSalePrice.TabIndex = 15;
+            this.TbSalePrice.TabIndex = 5;
             // 
             // btnImage
             // 
@@ -321,7 +321,7 @@ namespace HoaYeuThuong
             this.btnImage.Location = new System.Drawing.Point(558, 156);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 23);
-            this.btnImage.TabIndex = 14;
+            this.btnImage.TabIndex = 6;
             this.btnImage.Text = "Thay Đổi";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
@@ -343,7 +343,7 @@ namespace HoaYeuThuong
             this.btnReload.Location = new System.Drawing.Point(689, 166);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(29, 24);
-            this.btnReload.TabIndex = 12;
+            this.btnReload.TabIndex = 7;
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
@@ -392,7 +392,7 @@ namespace HoaYeuThuong
             this.tbDes.Location = new System.Drawing.Point(284, 64);
             this.tbDes.Name = "tbDes";
             this.tbDes.Size = new System.Drawing.Size(161, 20);
-            this.tbDes.TabIndex = 4;
+            this.tbDes.TabIndex = 3;
             // 
             // tbPrice
             // 
@@ -400,7 +400,7 @@ namespace HoaYeuThuong
             this.tbPrice.Location = new System.Drawing.Point(284, 119);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(161, 20);
-            this.tbPrice.TabIndex = 2;
+            this.tbPrice.TabIndex = 4;
             // 
             // tbName
             // 
