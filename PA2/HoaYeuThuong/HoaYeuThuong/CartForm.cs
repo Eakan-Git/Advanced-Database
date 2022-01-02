@@ -58,6 +58,7 @@ namespace HoaYeuThuong
         {
             loadProductList();
             loadTotalPrice();
+            checkDGV();
         }
 
         private void productDGV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,6 +115,7 @@ namespace HoaYeuThuong
             updateProductDetails();
             loadProductList();
             loadTotalPrice();
+            checkDGV();
         }
         private void deleteProduct()
         {
@@ -130,11 +132,35 @@ namespace HoaYeuThuong
         {
             deleteProduct();
             loadProductList();
+            checkDGV();
+            loadTotalPrice();
         }
-
+        private void checkDGV()
+        {
+            if (productDGV.Rows.Count < 1)
+            {
+                btnPurchase.Enabled = false;
+                quantity.Enabled = false;
+                btnEditQuantity.Enabled = false;
+                btnDeleteProduct.Enabled = false;
+            }
+            else
+            {
+                btnPurchase.Enabled = true;
+                quantity.Enabled = true;
+                btnEditQuantity.Enabled = true;
+                btnDeleteProduct.Enabled = true;
+            }
+        }
         private void productDGV_SelectionChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPurchase_Click(object sender, EventArgs e)
+        {
+            Form form = new CustomerCreateOrderForm(ID);
+            form.Show();
         }
     }
 }

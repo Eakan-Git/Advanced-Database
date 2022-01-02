@@ -17,12 +17,15 @@ namespace HoaYeuThuong
         SqlDataAdapter adapter = new SqlDataAdapter();
         string str = @"Data Source=(local);Initial Catalog=Hoayeuthuong;Integrated Security=True";
         string ID;
+        bool payState = false;
         public CustomerOrderForm(string _ID)
         {
             InitializeComponent();
             connection = new SqlConnection(str);
             connection.Open();
             ID = _ID;
+            btnCancel.Enabled = false;
+            btnPay.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -32,7 +35,17 @@ namespace HoaYeuThuong
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-
+            if (payState)
+            {
+                DialogResult confirm = MessageBox.Show("Bạn muốn thanh toán bằng hình thức chuyển khoản?", "Thanh Toán Đơn Hàng", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    SqlCommand cmd = new SqlCommand("update THANHTOAN set THANHTOAN_TYPE = 1 where DH_ID = @DH_ID", connection);
+                    cmd.Parameters.AddWithValue("@DH_ID", orderDGV.SelectedRows[0].Cells[0].Value.ToString());
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Chuyển hình thức thanh toán thành công\nChúng tôi sẽ cập nhật thông tin sau khi nhận được chuyển khoản từ bạn");
+                }
+            }
         }
 
         private void loadOrderList()
@@ -56,7 +69,110 @@ namespace HoaYeuThuong
             adapter.SelectCommand = cmd;
             adapter.Fill(dt);
 
-            //nameFrom.Text = dt.Columns["TEN_DAT"].ToString();
+            nameFrom.Text = "Người đặt: " + dt.Rows[0]["TEN_DAT"].ToString();
+            phoneFrom.Text = "Số điện thoại: " + dt.Rows[0]["SDT_DAT"].ToString();
+            addressFrom.Text = "Địa chỉ: " + dt.Rows[0]["DIACHI_DAT"].ToString();
+
+            nameTo.Text = "Người nhận: " + dt.Rows[0]["TEN_NHAN"].ToString();
+            phoneTo.Text = "Số điện thoại: " + dt.Rows[0]["SDT_NHAN"].ToString();
+            addressTo.Text = "Địa chỉ: " + dt.Rows[0]["DIACHI_NHAN"].ToString();
+
+            if (dt.Rows[0]["ANDANH"].Equals(true))
+            {
+                anonymous.Text = "Ẩn danh: Có";
+            }
+            else
+            {
+                anonymous.Text = "Ẩn danh: Không";
+                anonymous.ForeColor = Color.Black;
+            }
+
+            message.Text = "Lời nhắn: " + dt.Rows[0]["LOINHAN"].ToString();
+            note.Text = dt.Rows[0]["NOTE"].ToString();
+            if (dt.Rows[0]["XUAT_GTGT"].Equals(true))
+            {
+                GTGT.Text = "Xuất GTGT: Có";
+            }
+            else
+            {
+                GTGT.Text = "Xuất GTGT: Không";
+                GTGT.ForeColor = Color.Black;
+            }
+
+            placedTime.Text = "Ngày đặt: " + dt.Rows[0]["THOIGIANDATHANG"].ToString();
+            
+            if(dt.Rows[0]["THOIGIANNHANHANG"] != null)
+            {
+                deliveryTime.Text = "Ngày nhận: " + dt.Rows[0]["THOIGIANNHANHANG"].ToString();
+            }    
+            else
+            {
+                deliveryTime.Text = "Không có ngày giao hàng";
+            }
+
+            status.Text = "Trạng thái: " + dt.Rows[0]["TINHTRANG"].ToString();
+            extraCost.Text = "Phụ phí: " + dt.Rows[0]["PHUPHI"].ToString();
+            voucher.Text = "Giảm giá: " + dt.Rows[0]["GIAGIAM"].ToString();
+            total.Text = "Thành tiền: " + dt.Rows[0]["THANHTIEN"].ToString();
+            if(dt.Rows[0]["THANHTOAN_TYPE"].Equals(true))
+            {
+                type.Text = "Thanh toán: Chuyển khoản";
+            }   
+            else
+            {
+                type.Text = "Thanh toán: Tiền mặt";
+            }
+
+            if(dt.Rows[0]["TRANGTHAI"].Equals(true))
+            {
+                payStatus.Text = "Đã thanh toán";
+                payStatus.ForeColor = Color.Green;
+            }   
+            else
+            {
+                payStatus.Text = "Chưa thanh toán";
+                payStatus.ForeColor = Color.Red;
+            }    
+
+            nameFrom.Visible = true;
+            phoneFrom.Visible = true;
+            addressFrom.Visible = true;
+
+            nameTo.Visible = true;
+            phoneTo.Visible = true;
+            addressTo.Visible = true;
+
+            anonymous.Visible = true;
+            message.Visible = true;
+            note.Visible = true;
+            GTGT.Visible = true;
+            placedTime.Visible = true;
+            deliveryTime.Visible = true;
+            status.Visible = true;
+            extraCost.Visible = true;
+            voucher.Visible = true;
+            total.Visible = true;
+            type.Visible = true;
+            payStatus.Visible = true;
+
+            if(dt.Rows[0]["THOIGIANNHANHANG"] == null)
+            {
+                btnCancel.Enabled = true;
+                if(dt.Rows[0]["TRANGTHAI"].Equals(false))
+                {
+                    btnPay.Enabled = true;
+                    payState = true;
+                }    
+                else
+                {
+                    btnPay.Enabled = false;
+                    payState = false;
+                }    
+            }    
+            else
+            {
+                btnCancel.Enabled = false;
+            }    
         }
         private void orderDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {

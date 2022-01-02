@@ -29,18 +29,17 @@ namespace HoaYeuThuong
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelName = new System.Windows.Forms.Label();
             this.panelBtn = new System.Windows.Forms.Panel();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panelDGV = new System.Windows.Forms.Panel();
+            this.orderDGV = new System.Windows.Forms.DataGridView();
             this.panelData = new System.Windows.Forms.Panel();
             this.panelDetail = new System.Windows.Forms.Panel();
-            this.orderDGV = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelDetailRight = new System.Windows.Forms.Panel();
             this.total = new System.Windows.Forms.Label();
             this.voucher = new System.Windows.Forms.Label();
@@ -58,16 +57,19 @@ namespace HoaYeuThuong
             this.addressFrom = new System.Windows.Forms.Label();
             this.phoneFrom = new System.Windows.Forms.Label();
             this.nameFrom = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.note = new System.Windows.Forms.Label();
+            this.type = new System.Windows.Forms.Label();
+            this.payStatus = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             this.panelBtn.SuspendLayout();
             this.panelDGV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDGV)).BeginInit();
             this.panelData.SuspendLayout();
             this.panelDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderDGV)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panelDetailRight.SuspendLayout();
             this.panelDetailLeft.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -149,6 +151,44 @@ namespace HoaYeuThuong
             this.panelDGV.Size = new System.Drawing.Size(718, 187);
             this.panelDGV.TabIndex = 0;
             // 
+            // orderDGV
+            // 
+            this.orderDGV.AllowUserToAddRows = false;
+            this.orderDGV.AllowUserToDeleteRows = false;
+            this.orderDGV.AllowUserToResizeColumns = false;
+            this.orderDGV.AllowUserToResizeRows = false;
+            this.orderDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orderDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.orderDGV.BackgroundColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = "Không xác định";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orderDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.orderDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orderDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.orderDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderDGV.GridColor = System.Drawing.Color.Gainsboro;
+            this.orderDGV.Location = new System.Drawing.Point(0, 0);
+            this.orderDGV.Name = "orderDGV";
+            this.orderDGV.ReadOnly = true;
+            this.orderDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.orderDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.orderDGV.Size = new System.Drawing.Size(718, 187);
+            this.orderDGV.TabIndex = 12;
+            this.orderDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDGV_CellClick);
+            // 
             // panelData
             // 
             this.panelData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -174,54 +214,11 @@ namespace HoaYeuThuong
             this.panelDetail.Size = new System.Drawing.Size(718, 333);
             this.panelDetail.TabIndex = 2;
             // 
-            // orderDGV
-            // 
-            this.orderDGV.AllowUserToAddRows = false;
-            this.orderDGV.AllowUserToDeleteRows = false;
-            this.orderDGV.AllowUserToResizeColumns = false;
-            this.orderDGV.AllowUserToResizeRows = false;
-            this.orderDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.orderDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.orderDGV.BackgroundColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.NullValue = "Không xác định";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orderDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.orderDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.orderDGV.DefaultCellStyle = dataGridViewCellStyle4;
-            this.orderDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderDGV.GridColor = System.Drawing.Color.Gainsboro;
-            this.orderDGV.Location = new System.Drawing.Point(0, 0);
-            this.orderDGV.Name = "orderDGV";
-            this.orderDGV.ReadOnly = true;
-            this.orderDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.orderDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderDGV.Size = new System.Drawing.Size(718, 187);
-            this.orderDGV.TabIndex = 12;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.note);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 302);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(718, 31);
-            this.panel1.TabIndex = 0;
-            // 
             // panelDetailRight
             // 
+            this.panelDetailRight.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelDetailRight.Controls.Add(this.payStatus);
+            this.panelDetailRight.Controls.Add(this.type);
             this.panelDetailRight.Controls.Add(this.total);
             this.panelDetailRight.Controls.Add(this.voucher);
             this.panelDetailRight.Controls.Add(this.status);
@@ -229,10 +226,9 @@ namespace HoaYeuThuong
             this.panelDetailRight.Controls.Add(this.placedTime);
             this.panelDetailRight.Controls.Add(this.extraCost);
             this.panelDetailRight.Controls.Add(this.GTGT);
-            this.panelDetailRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDetailRight.Location = new System.Drawing.Point(307, 0);
+            this.panelDetailRight.Location = new System.Drawing.Point(454, 0);
             this.panelDetailRight.Name = "panelDetailRight";
-            this.panelDetailRight.Size = new System.Drawing.Size(411, 302);
+            this.panelDetailRight.Size = new System.Drawing.Size(264, 302);
             this.panelDetailRight.TabIndex = 5;
             // 
             // total
@@ -240,80 +236,88 @@ namespace HoaYeuThuong
             this.total.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.total.AutoSize = true;
             this.total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total.Location = new System.Drawing.Point(6, 233);
+            this.total.Location = new System.Drawing.Point(3, 178);
             this.total.Name = "total";
             this.total.Size = new System.Drawing.Size(40, 20);
             this.total.TabIndex = 12;
             this.total.Text = "total";
+            this.total.Visible = false;
             // 
             // voucher
             // 
             this.voucher.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.voucher.AutoSize = true;
             this.voucher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voucher.Location = new System.Drawing.Point(6, 200);
+            this.voucher.Location = new System.Drawing.Point(3, 150);
             this.voucher.Name = "voucher";
             this.voucher.Size = new System.Drawing.Size(65, 20);
             this.voucher.TabIndex = 11;
             this.voucher.Text = "voucher";
+            this.voucher.Visible = false;
             // 
             // status
             // 
             this.status.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.status.AutoSize = true;
             this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.Location = new System.Drawing.Point(6, 162);
+            this.status.Location = new System.Drawing.Point(3, 122);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(53, 20);
             this.status.TabIndex = 10;
             this.status.Text = "status";
+            this.status.Visible = false;
             // 
             // deliveryTime
             // 
             this.deliveryTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.deliveryTime.AutoSize = true;
             this.deliveryTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveryTime.Location = new System.Drawing.Point(6, 124);
+            this.deliveryTime.Location = new System.Drawing.Point(3, 94);
             this.deliveryTime.Name = "deliveryTime";
             this.deliveryTime.Size = new System.Drawing.Size(95, 20);
             this.deliveryTime.TabIndex = 9;
             this.deliveryTime.Text = "deliveryTime";
+            this.deliveryTime.Visible = false;
             // 
             // placedTime
             // 
             this.placedTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.placedTime.AutoSize = true;
             this.placedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placedTime.Location = new System.Drawing.Point(6, 86);
+            this.placedTime.Location = new System.Drawing.Point(3, 66);
             this.placedTime.Name = "placedTime";
             this.placedTime.Size = new System.Drawing.Size(90, 20);
             this.placedTime.TabIndex = 8;
             this.placedTime.Text = "placedTime";
+            this.placedTime.Visible = false;
             // 
             // extraCost
             // 
             this.extraCost.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.extraCost.AutoSize = true;
             this.extraCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extraCost.Location = new System.Drawing.Point(6, 48);
+            this.extraCost.Location = new System.Drawing.Point(3, 38);
             this.extraCost.Name = "extraCost";
             this.extraCost.Size = new System.Drawing.Size(77, 20);
             this.extraCost.TabIndex = 7;
             this.extraCost.Text = "extraCost";
+            this.extraCost.Visible = false;
             // 
             // GTGT
             // 
             this.GTGT.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.GTGT.AutoSize = true;
             this.GTGT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GTGT.Location = new System.Drawing.Point(6, 10);
+            this.GTGT.Location = new System.Drawing.Point(3, 10);
             this.GTGT.Name = "GTGT";
             this.GTGT.Size = new System.Drawing.Size(53, 20);
             this.GTGT.TabIndex = 6;
             this.GTGT.Text = "GTGT";
+            this.GTGT.Visible = false;
             // 
             // panelDetailLeft
             // 
+            this.panelDetailLeft.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelDetailLeft.Controls.Add(this.message);
             this.panelDetailLeft.Controls.Add(this.anonymous);
             this.panelDetailLeft.Controls.Add(this.addressTo);
@@ -322,10 +326,9 @@ namespace HoaYeuThuong
             this.panelDetailLeft.Controls.Add(this.addressFrom);
             this.panelDetailLeft.Controls.Add(this.phoneFrom);
             this.panelDetailLeft.Controls.Add(this.nameFrom);
-            this.panelDetailLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelDetailLeft.Location = new System.Drawing.Point(0, 0);
             this.panelDetailLeft.Name = "panelDetailLeft";
-            this.panelDetailLeft.Size = new System.Drawing.Size(307, 302);
+            this.panelDetailLeft.Size = new System.Drawing.Size(448, 302);
             this.panelDetailLeft.TabIndex = 4;
             // 
             // message
@@ -338,6 +341,7 @@ namespace HoaYeuThuong
             this.message.Size = new System.Drawing.Size(74, 20);
             this.message.TabIndex = 15;
             this.message.Text = "message";
+            this.message.Visible = false;
             // 
             // anonymous
             // 
@@ -349,6 +353,7 @@ namespace HoaYeuThuong
             this.anonymous.Size = new System.Drawing.Size(91, 20);
             this.anonymous.TabIndex = 14;
             this.anonymous.Text = "anonymous";
+            this.anonymous.Visible = false;
             // 
             // addressTo
             // 
@@ -360,6 +365,7 @@ namespace HoaYeuThuong
             this.addressTo.Size = new System.Drawing.Size(84, 20);
             this.addressTo.TabIndex = 5;
             this.addressTo.Text = "addressTo";
+            this.addressTo.Visible = false;
             // 
             // phoneTo
             // 
@@ -371,6 +377,7 @@ namespace HoaYeuThuong
             this.phoneTo.Size = new System.Drawing.Size(72, 20);
             this.phoneTo.TabIndex = 4;
             this.phoneTo.Text = "phoneTo";
+            this.phoneTo.Visible = false;
             // 
             // nameTo
             // 
@@ -382,6 +389,7 @@ namespace HoaYeuThuong
             this.nameTo.Size = new System.Drawing.Size(67, 20);
             this.nameTo.TabIndex = 3;
             this.nameTo.Text = "nameTo";
+            this.nameTo.Visible = false;
             // 
             // addressFrom
             // 
@@ -393,6 +401,7 @@ namespace HoaYeuThuong
             this.addressFrom.Size = new System.Drawing.Size(103, 20);
             this.addressFrom.TabIndex = 2;
             this.addressFrom.Text = "addressFrom";
+            this.addressFrom.Visible = false;
             // 
             // phoneFrom
             // 
@@ -404,6 +413,7 @@ namespace HoaYeuThuong
             this.phoneFrom.Size = new System.Drawing.Size(91, 20);
             this.phoneFrom.TabIndex = 1;
             this.phoneFrom.Text = "phoneFrom";
+            this.phoneFrom.Visible = false;
             // 
             // nameFrom
             // 
@@ -415,6 +425,16 @@ namespace HoaYeuThuong
             this.nameFrom.Size = new System.Drawing.Size(86, 20);
             this.nameFrom.TabIndex = 0;
             this.nameFrom.Text = "nameFrom";
+            this.nameFrom.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.note);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 302);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(718, 31);
+            this.panel1.TabIndex = 0;
             // 
             // note
             // 
@@ -427,6 +447,31 @@ namespace HoaYeuThuong
             this.note.TabIndex = 14;
             this.note.Text = "note";
             this.note.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.note.Visible = false;
+            // 
+            // type
+            // 
+            this.type.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.type.AutoSize = true;
+            this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.type.Location = new System.Drawing.Point(3, 206);
+            this.type.Name = "type";
+            this.type.Size = new System.Drawing.Size(39, 20);
+            this.type.TabIndex = 13;
+            this.type.Text = "type";
+            this.type.Visible = false;
+            // 
+            // payStatus
+            // 
+            this.payStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.payStatus.AutoSize = true;
+            this.payStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payStatus.Location = new System.Drawing.Point(3, 234);
+            this.payStatus.Name = "payStatus";
+            this.payStatus.Size = new System.Drawing.Size(81, 20);
+            this.payStatus.TabIndex = 14;
+            this.payStatus.Text = "payStatus";
+            this.payStatus.Visible = false;
             // 
             // CustomerOrderForm
             // 
@@ -443,14 +488,14 @@ namespace HoaYeuThuong
             this.panelTitle.ResumeLayout(false);
             this.panelBtn.ResumeLayout(false);
             this.panelDGV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.orderDGV)).EndInit();
             this.panelData.ResumeLayout(false);
             this.panelDetail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.orderDGV)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.panelDetailRight.ResumeLayout(false);
             this.panelDetailRight.PerformLayout();
             this.panelDetailLeft.ResumeLayout(false);
             this.panelDetailLeft.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +531,7 @@ namespace HoaYeuThuong
         private System.Windows.Forms.Label nameFrom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label note;
+        private System.Windows.Forms.Label type;
+        private System.Windows.Forms.Label payStatus;
     }
 }
