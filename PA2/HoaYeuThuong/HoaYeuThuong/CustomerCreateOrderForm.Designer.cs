@@ -33,6 +33,7 @@ namespace HoaYeuThuong
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.autoFill2 = new System.Windows.Forms.CheckBox();
             this.tbAddressTo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPhoneTo = new System.Windows.Forms.TextBox();
@@ -57,6 +58,9 @@ namespace HoaYeuThuong
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.GTGT = new System.Windows.Forms.CheckBox();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.fastDelivery = new System.Windows.Forms.CheckBox();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
             this.tbVoucher = new System.Windows.Forms.TextBox();
@@ -74,10 +78,6 @@ namespace HoaYeuThuong
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.fastDelivery = new System.Windows.Forms.CheckBox();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.autoFill2 = new System.Windows.Forms.CheckBox();
-            this.GTGT = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -134,6 +134,17 @@ namespace HoaYeuThuong
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(371, 178);
             this.panel8.TabIndex = 2;
+            // 
+            // autoFill2
+            // 
+            this.autoFill2.AutoSize = true;
+            this.autoFill2.Location = new System.Drawing.Point(84, 138);
+            this.autoFill2.Name = "autoFill2";
+            this.autoFill2.Size = new System.Drawing.Size(108, 17);
+            this.autoFill2.TabIndex = 11;
+            this.autoFill2.Text = "Tôi là người nhận";
+            this.autoFill2.UseVisualStyleBackColor = true;
+            this.autoFill2.CheckedChanged += new System.EventHandler(this.autoFill2_CheckedChanged);
             // 
             // tbAddressTo
             // 
@@ -362,6 +373,37 @@ namespace HoaYeuThuong
             this.panel20.Size = new System.Drawing.Size(371, 57);
             this.panel20.TabIndex = 1;
             // 
+            // GTGT
+            // 
+            this.GTGT.AutoSize = true;
+            this.GTGT.Location = new System.Drawing.Point(33, 31);
+            this.GTGT.Name = "GTGT";
+            this.GTGT.Size = new System.Drawing.Size(81, 17);
+            this.GTGT.TabIndex = 14;
+            this.GTGT.Text = "Xuất GTGT";
+            this.GTGT.UseVisualStyleBackColor = true;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(0, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(0, 20);
+            this.labelTotal.TabIndex = 13;
+            // 
+            // fastDelivery
+            // 
+            this.fastDelivery.AutoSize = true;
+            this.fastDelivery.Location = new System.Drawing.Point(157, 31);
+            this.fastDelivery.Name = "fastDelivery";
+            this.fastDelivery.Size = new System.Drawing.Size(71, 17);
+            this.fastDelivery.TabIndex = 12;
+            this.fastDelivery.Text = "Giao Gấp";
+            this.fastDelivery.UseVisualStyleBackColor = true;
+            this.fastDelivery.CheckedChanged += new System.EventHandler(this.fastDelivery_CheckedChanged);
+            // 
             // btnPlaceOrder
             // 
             this.btnPlaceOrder.Image = global::HoaYeuThuong.Properties.Resources.purchase_32;
@@ -528,48 +570,6 @@ namespace HoaYeuThuong
             this.label3.TabIndex = 1;
             this.label3.Text = "THÔNG TIN CHUNG";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // fastDelivery
-            // 
-            this.fastDelivery.AutoSize = true;
-            this.fastDelivery.Location = new System.Drawing.Point(157, 31);
-            this.fastDelivery.Name = "fastDelivery";
-            this.fastDelivery.Size = new System.Drawing.Size(71, 17);
-            this.fastDelivery.TabIndex = 12;
-            this.fastDelivery.Text = "Giao Gấp";
-            this.fastDelivery.UseVisualStyleBackColor = true;
-            this.fastDelivery.CheckedChanged += new System.EventHandler(this.fastDelivery_CheckedChanged);
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(0, 0);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(0, 20);
-            this.labelTotal.TabIndex = 13;
-            // 
-            // autoFill2
-            // 
-            this.autoFill2.AutoSize = true;
-            this.autoFill2.Location = new System.Drawing.Point(84, 138);
-            this.autoFill2.Name = "autoFill2";
-            this.autoFill2.Size = new System.Drawing.Size(108, 17);
-            this.autoFill2.TabIndex = 11;
-            this.autoFill2.Text = "Tôi là người nhận";
-            this.autoFill2.UseVisualStyleBackColor = true;
-            this.autoFill2.CheckedChanged += new System.EventHandler(this.autoFill2_CheckedChanged);
-            // 
-            // GTGT
-            // 
-            this.GTGT.AutoSize = true;
-            this.GTGT.Location = new System.Drawing.Point(33, 31);
-            this.GTGT.Name = "GTGT";
-            this.GTGT.Size = new System.Drawing.Size(81, 17);
-            this.GTGT.TabIndex = 14;
-            this.GTGT.Text = "Xuất GTGT";
-            this.GTGT.UseVisualStyleBackColor = true;
             // 
             // CustomerCreateOrderForm
             // 

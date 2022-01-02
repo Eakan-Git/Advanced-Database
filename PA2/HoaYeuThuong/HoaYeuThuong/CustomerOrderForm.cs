@@ -63,6 +63,7 @@ namespace HoaYeuThuong
         {
             loadOrderList();
         }
+
         private void loadDetailedOrder()
         {
             DataTable dt = new DataTable();
@@ -86,7 +87,6 @@ namespace HoaYeuThuong
             else
             {
                 anonymous.Text = "Ẩn danh: Không";
-                anonymous.ForeColor = Color.Black;
             }
 
             message.Text = "Lời nhắn: " + dt.Rows[0]["LOINHAN"].ToString();
@@ -103,7 +103,7 @@ namespace HoaYeuThuong
 
             placedTime.Text = "Ngày đặt: " + Convert.ToDateTime(orderDGV.SelectedRows[0].Cells[3].Value).Date.ToString("MM/dd/yyyy");
 
-            if (orderDGV.SelectedRows[0].Cells[4].Value != null)
+            if (orderDGV.SelectedRows[0].Cells[4].Value.Equals(null))
             {
                 deliveryTime.Text = "Ngày giao: " + Convert.ToDateTime(orderDGV.SelectedRows[0].Cells[4].Value).Date.ToString("MM/dd/yyyy");                
             }    
@@ -140,12 +140,12 @@ namespace HoaYeuThuong
             {
                 type.Visible = false;
                 payStatus.Visible = false;
+                btnCancel.Enabled = false;
+                btnPay.Enabled = false;
             }    
             else
             {
-                //type.Text = "type";
-                //type.Visible = true;
-                //payStatus.Visible = true;
+                
             }    
         }
         private void orderDGV_CellClick(object sender, DataGridViewCellEventArgs e)
